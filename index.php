@@ -14,7 +14,7 @@ $router = new AltoRouter();
 $router->setBasePath(Config::getBasePath());
 
 
-$router->map('GET', '/', function () {
+$router->map('GET', '/coucou', function () {
     $controller = new PageController();
     $controller->index();
 });
