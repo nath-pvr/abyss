@@ -29,4 +29,8 @@ class PageController extends GeneralController
         echo "connexion";
     }
 
+    public function film() {
+        echo "film";
+    }
+
 }

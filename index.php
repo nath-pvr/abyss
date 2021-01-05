@@ -30,6 +30,11 @@ $router->map('GET', '/connexion', function () {
     $controller->connexion();
 });
 
+$router->map('GET', '/film', function () {
+    $controller = new PageController();
+    $controller->film();
+});
+
 $match = $router->match();
 
 // call closure or throw 404 status
