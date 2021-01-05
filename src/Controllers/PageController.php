@@ -32,5 +32,12 @@ class PageController extends GeneralController
     public function film() {
         echo "film";
     }
+    
+    public function auteurs() {
+        echo "auteurs";
+    }
+    public function auteur() {
+        echo "auteur";
+    }
 
 }

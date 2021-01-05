@@ -35,6 +35,19 @@ $router->map('GET', '/film', function () {
     $controller->film();
 });
 
+$router->map('GET', '/auteurs', function () {
+    $controller = new PageController();
+    $controller->auteurs();
+});
+
+$router->map('GET', '/auteur', function () {
+    $controller = new PageController();
+    $controller->auteur();
+});
+
+
+
+
 $match = $router->match();
 
 // call closure or throw 404 status
