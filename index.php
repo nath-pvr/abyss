@@ -14,10 +14,17 @@ $router = new AltoRouter();
 $router->setBasePath(Config::getBasePath());
 
 
+
 $router->map('GET', '/', function () {
     $controller = new PageController();
     $controller->index();
 });
+
+$router->map('GET', '/inscription', function () {
+    $controller = new PageController();
+    $controller->inscription();
+});
+
 
 
 $match = $router->match();
