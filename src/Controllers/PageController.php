@@ -25,4 +25,8 @@ class PageController extends GeneralController
         echo "mot";
     }
 
+    public function connexion() {
+        echo "connexion";
+    }
+
 }

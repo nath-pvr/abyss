@@ -25,7 +25,10 @@ $router->map('GET', '/inscription', function () {
     $controller->inscription();
 });
 
-
+$router->map('GET', '/connexion', function () {
+    $controller = new PageController();
+    $controller->connexion();
+});
 
 $match = $router->match();
 
