@@ -30,6 +30,7 @@ $router->map('GET', '/connexion', function () {
     $controller->connexion();
 });
 
+$title = "le grand Bleu";
 $router->map('GET', '/film', function () {
     $controller = new PageController();
     $controller->film();
