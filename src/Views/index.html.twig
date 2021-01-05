@@ -1,0 +1,19 @@
+{% extends "template.html.twig" %}
+
+{% block navigation %}
+        <nav>
+            <ul>
+                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
+                <li><a>Se connecter</a></li>
+                <li>
+                    <input type="text" name="search" placeholder="Rechercher...">
+                </li>
+            </ul>
+        </nav>
+{% endblock %}
+
+{% block body %}
+    {% for movie in movies %}
+        {{ dump(movie) }}
+    {% endfor %}
+{% endblock %}

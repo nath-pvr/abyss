@@ -20,6 +20,12 @@ $router->map('GET', '/', function () {
     $controller->index();
 });
 
+$router->map('GET', '/inscription', function () {
+    $controller = new PageController();
+    $controller->inscription();
+});
+
+
 
 $match = $router->match();
 
