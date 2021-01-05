@@ -40,4 +40,12 @@ class PageController extends GeneralController
         echo "auteur";
     }
 
+    public function acteurs() {
+        echo "acteurs";
+    }
+
+    public function acteur() {
+        echo "acteur";
+    }
+
 }

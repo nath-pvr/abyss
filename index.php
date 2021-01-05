@@ -45,6 +45,16 @@ $router->map('GET', '/auteur', function () {
     $controller->auteur();
 });
 
+$router->map('GET', '/acteurs', function () {
+    $controller = new PageController();
+    $controller->acteurs();
+});
+
+$router->map('GET', '/acteur', function () {
+    $controller = new PageController();
+    $controller->acteur();
+});
+
 
 
 
