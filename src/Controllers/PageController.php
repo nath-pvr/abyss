@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ActorModel;
+use App\Models\ActorsModel;
 use App\Models\MovieModel;
 use App\Models\MoviesModel;
 
@@ -49,13 +51,24 @@ class PageController extends GeneralController
         echo "auteur";
     }
 
-    public function acteurs(): void
+    public function actors(): void
     {
-        echo "acteurs";
+      $actorsModel = new ActorsModel();
+      
+      $actors = $actorsModel->getAllActors();
+
+      $template = $this->twig->load('actors.html.twig');
+      echo $template->render(["actors"=> $actors]);
+
     }
 
-    public function acteur(): void
+    public function acteur($id): void
     {
-        echo "acteur";
+       // Instanciation d'un nouvel objet ActorModel
+       $actorModel = new ActorModel();
+       // Utilise la fonction getOneActor() de la class ActorModel 
+       $actor = $actorModel->getOneActor($id);
+       $template = $this->twig->load('actor.html.twig');
+       echo $template->render(["actor" => $actor]); 
     }
 }
