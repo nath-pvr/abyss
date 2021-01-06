@@ -62,7 +62,7 @@ class PageController extends GeneralController
 
     }
 
-    public function acteur($id): void
+    public function actor($id): void
     {
        // Instanciation d'un nouvel objet ActorModel
        $actorModel = new ActorModel();

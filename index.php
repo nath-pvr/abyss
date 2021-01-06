@@ -48,12 +48,12 @@ $router->map('GET', '/auteur', function () {
 
 $router->map('GET', '/acteurs', function () {
     $controller = new PageController();
-    $controller->acteurs();
+    $controller->actors();
 });
 
-$router->map('GET', '/acteur', function () {
+$router->map('GET', '/acteur', function ($id) {
     $controller = new PageController();
-    $controller->acteur();
+    $controller->actor($id);
 });
 
 
