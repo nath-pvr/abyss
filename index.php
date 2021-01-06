@@ -9,7 +9,7 @@ use App\Controllers\MovieController;
 use App\Controllers\UsersController;
 /* fin dex Controller exemple */
 
-//session_start();
+session_start();
 
 $router = new AltoRouter();
 $router->setBasePath(Config::getBasePath());

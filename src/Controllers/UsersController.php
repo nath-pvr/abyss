@@ -8,6 +8,8 @@ use App\Models\UsersModel;
 
 class UsersController extends GeneralController {
 
+    private array $error = [];
+
     public function __construct() {
         parent::__construct();
     }
@@ -63,9 +65,14 @@ class UsersController extends GeneralController {
             $this->emailVerify($_POST['email']);
             $this->passwordVerify($_POST['password']);
             $this->confirmPasswordVerify(['confirmPassword']);
+            if (empty($this->error)) {
+                $usersModel = new UsersModel();
+                $users = $usersModel->addUser();
+            } else {
+                // TODO afficher une erreur en async
+                echo "oups";
+            }
         }
-        $usersModel = new UsersModel();
-        $users = $usersModel->addUser();
         $template = $this->twig->load('register.html.twig');
         echo $template->render(["users" => $users]);
     }
