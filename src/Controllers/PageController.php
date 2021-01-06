@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\MovieModel;
 use App\Models\MoviesModel;
 use App\Models\FilmmakerModel;
+use App\Models\FilmmakersModel;
 
 
 class PageController extends GeneralController
@@ -44,7 +45,10 @@ class PageController extends GeneralController
 
     public function filmmakers(): void
     {
-        echo "auteurs";
+        $filmmakersModel = new FilmmakersModel(); // Instanciation de la class FilmakersModel
+        $filmmakers = $filmmakersModel->getAllFilmmakers(); // Utilise la fonction getAllFilmmakers() de la classe FilmmakersModel
+        $template = $this->twig->load('filmmakers.html.twig');
+        echo $template->render(["filmmakers" => $filmmakers]);
     }
 
     public function filmmaker($id): void

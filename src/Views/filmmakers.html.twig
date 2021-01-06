@@ -1,0 +1,19 @@
+{% extends "template.html.twig" %}
+{# A refacto dans le template affiché sur toutes les pages #}
+{% block navigation %}
+        <nav>
+            <ul>
+                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
+                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
+                <li>
+                    <input type="text" name="search" placeholder="Rechercher...">
+                </li>
+            </ul>
+        </nav>
+{% endblock %}
+
+{% block body %}
+    {% for filmmaker in filmmakers %}
+        {{ dump(filmmaker) }}
+    {% endfor %}
+{% endblock %}

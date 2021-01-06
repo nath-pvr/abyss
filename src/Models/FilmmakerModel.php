@@ -11,7 +11,7 @@ class FilmmakerModel extends GeneralModel {
 
     // Requête SQL pour chercher l'auteur d'un films de la table
     public function getOneFilmmaker($id) {
-         $sql = 'SELECT * FROM filmmaker WHERE id = :id';
+         $sql = 'SELECT * FROM artists WHERE id = :id';
          $req = $this->pdo->prepare($sql);
          $req->execute([":id" => $id]);
          return $req->fetch();
