@@ -30,6 +30,35 @@ $router->map('GET', '/connexion', function () {
     $controller->connexion();
 });
 
+//TODO Expliquer comment j'ai fait pour afficher le film choisi
+$router->map('GET', '/film/[i:id]', function ($id) {
+    $controller = new PageController();
+    $controller->film($id);
+});
+
+$router->map('GET', '/auteurs', function () {
+    $controller = new PageController();
+    $controller->auteurs();
+});
+
+$router->map('GET', '/auteur', function () {
+    $controller = new PageController();
+    $controller->auteur();
+});
+
+$router->map('GET', '/acteurs', function () {
+    $controller = new PageController();
+    $controller->acteurs();
+});
+
+$router->map('GET', '/acteur', function () {
+    $controller = new PageController();
+    $controller->acteur();
+});
+
+
+
+
 $match = $router->match();
 
 // call closure or throw 404 status
