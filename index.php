@@ -6,6 +6,7 @@ use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
 use App\Controllers\PageController;
 use App\Controllers\MovieController;
+use App\Controllers\UsersController;
 /* fin dex Controller exemple */
 
 //session_start();
@@ -21,8 +22,13 @@ $router->map('GET', '/', function () {
 });
 
 $router->map('GET', '/inscription', function () {
-    $controller = new PageController();
-    $controller->inscription();
+    $controller = new UsersController();
+    $controller->register();
+});
+
+$router->map('POST', '/inscription', function () {
+    $controller = new UsersController();
+    $controller->register();
 });
 
 $router->map('GET', '/connexion', function () {
