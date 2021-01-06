@@ -10,11 +10,10 @@ class MovieModel extends GeneralModel {
     }
 
     // Requête SQL pour chercher tous les films de la table
-    public function getOneMovie(): void {
-        // $sql = 'SELECT * FROM movies WHERE Titre=?';
-        // $req = $this->pdo->prepare($sql);
-        // $req->execute([$title]);
-        // return $req->fetch();
-        echo "je suis un film";
+    public function getOneMovie($id) {
+         $sql = 'SELECT * FROM movies WHERE id = :id';
+         $req = $this->pdo->prepare($sql);
+         $req->execute([":id" => $id]);
+         return $req->fetch();
     }
 }

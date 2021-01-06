@@ -20,41 +20,41 @@ class PageController extends GeneralController
         echo $template->render(["movies" => $movies]);
     }
 
-    public function inscription()
+    public function inscription(): void
     {
         echo "mot";
     }
 
-    public function connexion()
+    public function connexion(): void
     {
         echo "connexion";
     }
 
-    public function film()
+    public function film($id): void
     {
         // Instanciation d'un nouvel objet MovieModel
         $movieModel = new MovieModel();
         // Utilise la fonction getOneMovie() de la class MovieModel 
-        $movie = $movieModel->getOneMovie();
+        $movie = $movieModel->getOneMovie($id);
         $template = $this->twig->load('film.html.twig');
         echo $template->render(["movie" => $movie]);
     }
 
-    public function auteurs()
+    public function auteurs(): void
     {
         echo "auteurs";
     }
-    public function auteur()
+    public function auteur(): void
     {
         echo "auteur";
     }
 
-    public function acteurs()
+    public function acteurs(): void
     {
         echo "acteurs";
     }
 
-    public function acteur()
+    public function acteur(): void
     {
         echo "acteur";
     }

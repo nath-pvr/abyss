@@ -30,10 +30,10 @@ $router->map('GET', '/connexion', function () {
     $controller->connexion();
 });
 
-$title = "le grand Bleu";
-$router->map('GET', '/film', function () {
+//TODO Expliquer comment j'ai fait pour afficher le film choisi
+$router->map('GET', '/film/[i:id]', function ($id) {
     $controller = new PageController();
-    $controller->film();
+    $controller->film($id);
 });
 
 $router->map('GET', '/auteurs', function () {
