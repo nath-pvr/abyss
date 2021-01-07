@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<div class="main-w3layouts wrapper">
+	<div class="main-w3layouts wrapper vh-100">
     <img src="../assets/img/inscription.png" alt="img" class="abyss">
 		<h3>Inscription</h3>
 		<div class="main-agileinfo">
