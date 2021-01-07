@@ -4,10 +4,10 @@
 namespace App\Controllers;
 
 
-use App\Models\UsersModel;
+use App\Models\UsersRegisterModel;
 use Config\Config;
 
-class UsersController extends GeneralController {
+class UsersRegisterController extends GeneralController {
 
     private array $errors = array();
 
@@ -20,8 +20,8 @@ class UsersController extends GeneralController {
         if (empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
             $this->errors['username'] = "Votre pseudo n'est pas valide";
         } else {
-            $usersModel = new UsersModel();
-            $users = $usersModel->allUsersByPseudo();
+            $usersModel = new UsersRegisterModel();
+            $users = $usersModel->allUsersByPseudo($_POST['username']);
             if ($users) {
                 $this->errors['username'] = "Ce pseudo est déjà pris";
             }
@@ -33,8 +33,9 @@ class UsersController extends GeneralController {
         if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->errors['email'] = "Votre email n'est pas un email valide";
         } else {
-            $users = new UsersModel();
-            if ($users->allUsersByEmail()) {
+            $usersModel = new UsersRegisterModel();
+            $users = $usersModel->allUsersByEmail($email);
+            if ($users) {
                 $this->errors['email'] = "Cet email est déjà utilisé par un autre utilisateur";
             }
         }
@@ -63,8 +64,8 @@ class UsersController extends GeneralController {
             $this->passwordVerify($_POST['password']);
             $this->confirmPasswordVerify($_POST['confirmPassword']);
             if (empty($this->errors)) {
-                $usersModel = new UsersModel();
-                $users = $usersModel->addUser();
+                $usersModel = new UsersRegisterModel();
+                $users = $usersModel->addUser($_POST['username'], $_POST['email']);
                 $_SESSION['username'] = $_POST['username'];
                 header("Location: " . Config::getBasePath());
             }
