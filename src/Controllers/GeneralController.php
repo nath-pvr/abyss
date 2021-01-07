@@ -25,6 +25,7 @@ abstract class GeneralController
                 'debug' => true
             ]);
             self::$_twig->addGlobal("baseUrl", Config::getBaseUrl());
+            self::$_twig->addGlobal("session", $_SESSION);
             self::$_twig->addExtension(new DebugExtension());
         }
         return self::$_twig;
