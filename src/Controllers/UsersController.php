@@ -8,7 +8,7 @@ use App\Models\UsersModel;
 
 class UsersController extends GeneralController {
 
-    private array $error = [];
+    private array $errors = array();
 
     public function __construct() {
         parent::__construct();
@@ -16,45 +16,41 @@ class UsersController extends GeneralController {
 
     // Vérification du pseudo
     private function usernameVerify($username): void {
-        if (!empty($username)) {
-            // TODO ce qui a à faire après la vérification
-            echo "Bonjour";
+        if (empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+            $errors['username'] = "Votre pseudo n'est pas valide";
         } else {
-            // TODO Ce qui a à faire si ce n'est pas bon
-            echo "Username vide";
+            $usersModel = new UsersModel();
+            $users = $usersModel->allUsersByPseudo();
+            if ($users) {
+                $errors['username'] = "Ce pseudo est déjà pris";
+            }
         }
     }
 
     // Vérification de l'email
     private function emailVerify($email): void {
-        if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // TODO ce qui a à faire après la vérification
-            echo "Coucou";
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors['email'] = "Votre email n'est pas un email valide";
         } else {
-            // TODO Ce qui a à faire si ce n'est pas bon
-            echo "Email vide";
+            $users = new UsersModel();
+            $users->allUsersByEmail();
+            if ($users) {
+                $errors['email'] = "Cet email est déjà utilisé par un autre utilisateur";
+            }
         }
     }
 
     // Vérification du mot de passe
     private function passwordVerify($password): void {
-        if (!empty($password)) {
-            // TODO ce qui a à faire après la vérification
-            echo "Hey !";
-        } else {
-            // TODO Ce qui a à faire si ce n'est pas bon
-            echo "Mot de pass vide";
+        if (empty($password)) {
+            $errors['password'] = "Vous devez rentrer un mot de passe valide";
         }
     }
 
     // Vérification de la confirmation de mot de passe
     private function confirmPasswordVerify($password): void {
-        if (!empty($password) && $password === $_POST['password']) {
-            // TODO ce qui a à faire après la vérification
-            echo "Hello !";
-        } else {
-            // TODO Ce qui a à faire si ce n'est pas bon
-            echo "Pas pareil";
+        if (empty($password) || $password !== $_POST['password']) {
+            $errors['confirmPassword'] = "Vos mots de passe ne sont pas identiques";
         }
     }
 
@@ -65,12 +61,9 @@ class UsersController extends GeneralController {
             $this->emailVerify($_POST['email']);
             $this->passwordVerify($_POST['password']);
             $this->confirmPasswordVerify(['confirmPassword']);
-            if (empty($this->error)) {
+            if (empty($this->errors)) {
                 $usersModel = new UsersModel();
                 $users = $usersModel->addUser();
-            } else {
-                // TODO afficher une erreur en async
-                echo "oups";
             }
         }
         $template = $this->twig->load('register.html.twig');
