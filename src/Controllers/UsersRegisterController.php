@@ -23,7 +23,7 @@ class UsersRegisterController extends GeneralController {
             $usersModel = new UsersRegisterModel();
             $users = $usersModel->allUsersByPseudo($_POST['username']);
             if ($users) {
-                $this->errors['username'] = "Ce pseudo est déjà pris";
+                $this->errors['username'] = "Ce pseudo est déjà utilisé par un autre utilisateur";
             }
         }
     }
