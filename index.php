@@ -51,7 +51,7 @@ $router->map('GET', '/acteurs', function () {
     $controller->actors();
 });
 
-$router->map('GET', '/acteur', function ($id) {
+$router->map('GET', '/acteur/[i:id]', function ($id) {
     $controller = new PageController();
     $controller->actor($id);
 });
