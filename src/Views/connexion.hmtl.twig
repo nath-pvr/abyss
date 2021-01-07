@@ -1,0 +1,32 @@
+{% extends "template.html.twig" %}
+{% block css %}
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/inscription.css">
+{% endblock %}
+
+{% block body %}
+	<div class="main-w3layouts wrapper">
+		<img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss">
+		<h3>Connexion</h3>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="#" method="post">
+					<input class="text email" type="email" name="email" placeholder="Email">
+					<input class="text" type="password" name="password" placeholder="Mot de passe">
+					<div class="wthree-text">
+						<p class="mdp">
+							<a href="#">Mot de passe oublié</a>
+						</p>
+						<label class="anim">
+							<input type="checkbox" class="checkbox">
+							<span>Restez connecté</span>
+						</label>
+						<div class="clear"></div>
+					</div>
+					<input type="submit" name="submit" value="Se connecter">
+				</form>
+				<p>Pas encore de compte ? <a href="{{ baseUrl }}/inscription">Inscrivez-vous !</a></p>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
