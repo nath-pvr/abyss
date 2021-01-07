@@ -3,9 +3,7 @@
 
 namespace App\Models;
 
-use Config\Config;
-
-require_once '../../../function.php';
+require_once 'functions.php';
 class UsersModel extends GeneralModel {
 
     public function __construct() {
@@ -32,7 +30,6 @@ class UsersModel extends GeneralModel {
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
         $token = strRandom(60);
         $req->execute([$_POST['username'], $_POST['email'], $password, $token]);
-        $userId = $pdo->lastInsertId();
-        header("Location: " . Config::getBasePath());
+        $userId = $this->pdo->lastInsertId();
     }
 }
