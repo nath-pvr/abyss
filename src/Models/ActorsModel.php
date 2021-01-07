@@ -10,7 +10,7 @@ class ActorsModel extends GeneralModel{
 
     //Requête SQL
     public function getAllActors(): array{
-        $sql = 'SELECT * FROM actors';
+        $sql = 'SELECT * FROM artists';
         $req = $this->pdo->prepare($sql);
         $req->execute();
         return $req-> fetchAll();

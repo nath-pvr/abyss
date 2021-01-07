@@ -11,7 +11,7 @@ class ActorModel extends GeneralModel {
 
     // Requête SQL pour chercher tous les films de la table
     public function getOneActor($id) {
-         $sql = 'SELECT * FROM actors WHERE id = :id';
+         $sql = 'SELECT * FROM artists WHERE id = :id';
          $req = $this->pdo->prepare($sql);
          $req->execute([":id" => $id]);
          return $req->fetch();
