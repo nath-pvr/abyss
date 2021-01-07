@@ -13,7 +13,15 @@
 {% endblock %}
 
 {% block body %}
-    {% for actor in actors %}
-        {{ dump(actor) }}
-    {% endfor %}
+    {% if actor != false %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ actor.firstname }} {{ actor.lastname}} </h5> <span>Date de naissance : {{ actor.birthday }}</span>
+                <p>Films : {{ actor.film }}</p>
+            </div>
+        </div>
+    {% else %}
+        <h1>Page non trouvé</h1>
+    {% endif %}
 {% endblock %}
