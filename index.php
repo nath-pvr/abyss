@@ -36,14 +36,15 @@ $router->map('GET', '/film/[i:id]', function ($id) {
     $controller->film($id);
 });
 
+
 $router->map('GET', '/auteurs', function () {
     $controller = new PageController();
-    $controller->auteurs();
+    $controller->filmmakers();
 });
 
-$router->map('GET', '/auteur', function () {
+$router->map('GET', '/auteur/[i:id]', function ($id) {
     $controller = new PageController();
-    $controller->auteur();
+    $controller->filmmaker($id);
 });
 
 $router->map('GET', '/acteurs', function () {
