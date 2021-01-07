@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 07 jan. 2021 à 09:06
+-- Généré le : jeu. 07 jan. 2021 à 14:36
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -161,6 +161,27 @@ INSERT INTO `movies` (`id`, `title`, `gender`, `synopsis`, `year`) VALUES
 (18, 'Underwater', 'Catastrophe horifique', 'Dans la fosse des Mariannes, endroit le plus profond de la croûte terrestre, la société Tian Industries emploie de nombreuses personnes dans des stations sous-marines. Après ce qui semble être un séisme, la station Kepler 822 est quasiment désintégrée. Norah Price, qui a donné l\'alerte, est parvenue à se réfugier dans une zone protégée. Seules quelques personnes ont survécu : l\'expérimenté capitaine W. Lucien, le déjanté Paul Abel, l\'étudiante en biologie marine Emily Haversham, son petit-ami ingénieur forage Liam Smith ainsi que le responsable système Rodrigo Nagenda. Piégés à plus de 10 000 mètres de profondeur, ils vont devoir survivre et tout tenter pour remonter à la surface. En plus de l\'eau, ils vont affronter de mystérieuses créatures.', 2020),
 (19, 'Vaiana : La légende du bout du monde', 'Film-animation', 'Les habitants de l\'île polynésienne de Motunui vénérent la déesse Te Fiti, qui aurait donné vie à l\'océan grâce à une pierre de jade, cœur de Te Fiti et source de son pouvoir. Maui, demi-dieu métamorphe du vent et de la mer, vole le cœur afin de donner aux humains le pouvoir de la création. Te Fiti se désintègre, et Maui est attaqué par une autre divinité en quête du cœur tant convoité : Te Kā, un démon volcanique. Dans la bataille, Maui est propulsé dans les airs, perdant son hameçon magique et le cœur, qui disparaissent au fond de l\'océan...', 2016),
 (20, 'Waterworld', 'Action post-apocalyptique', 'Dans un avenir lointain, la Terre est totalement recouverte d\'eau à la suite du réchauffement climatique ayant causé la fonte des glaces. L\'humanité vit désormais sur des atolls artificiels. Cependant, une légende circule : celle de Dryland, qui serait l\'unique terre encore émergée. Un mutant mi humain et mi poisson, accompagné par une jeune femme et une petite fille, vont partir retrouver Dryland. Ils affrontent et se confrontent à des pirates sanguinaires, nommés les Smokers et dirigés par le Diacre.', 1995);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `function` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `role`
+--
+
+INSERT INTO `role` (`id`, `function`) VALUES
+(1, 'realisateur'),
+(2, 'acteur / doubleur');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
