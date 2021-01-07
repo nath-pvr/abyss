@@ -39,10 +39,10 @@ $router->map('GET', '/film/[i:id]', function ($id) {
 
 $router->map('GET', '/auteurs', function () {
     $controller = new PageController();
-    $controller->auteurs();
+    $controller->filmmakers();
 });
 
-$router->map('GET', '/filmmaker/[i:id]', function ($id) {
+$router->map('GET', '/auteur/[i:id]', function ($id) {
     $controller = new PageController();
     $controller->filmmaker($id);
 });

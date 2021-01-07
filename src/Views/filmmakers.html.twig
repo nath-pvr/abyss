@@ -14,6 +14,13 @@
 
 {% block body %}
     {% for filmmaker in filmmakers %}
-        {{ dump(filmmaker) }}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ filmmaker.firstname }} </h5> 
+                <h5 class="card-title">{{ filmmaker.lastname }} </h5> 
+                <p class="card-text">{{ filmmaker.biography }}</p>
+            </div>
+        </div>
     {% endfor %}
 {% endblock %}
