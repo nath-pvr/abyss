@@ -10,6 +10,7 @@ use Config\Config;
 class UsersRegisterController extends GeneralController {
 
     private array $errors = array();
+    private array $success = array();
 
     public function __construct() {
         parent::__construct();
@@ -17,7 +18,7 @@ class UsersRegisterController extends GeneralController {
 
     // Vérification du pseudo
     private function usernameVerify($username): void {
-        if (empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username)) {
+        if (empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username) || strlen($username) > 20) {
             $this->errors['username'] = "Votre pseudo n'est pas valide";
         } else {
             $usersModel = new UsersRegisterModel();
@@ -64,13 +65,13 @@ class UsersRegisterController extends GeneralController {
             $this->passwordVerify($_POST['password']);
             $this->confirmPasswordVerify($_POST['confirmPassword']);
             if (empty($this->errors)) {
+                $this->success['confirmation'] = "Veuillez confirmer cotre compte. Un mail vous a été envoyé";
                 $usersModel = new UsersRegisterModel();
-                $users = $usersModel->addUser($_POST['username'], $_POST['email']);
-                $_SESSION['username'] = $_POST['username'];
-                header("Location: " . Config::getBasePath());
+                $usersModel->addUser($_POST['username'], $_POST['email']);
+//                header("Location: " . Config::getBasePath());
             }
         }
         $template = $this->twig->load('inscription.html.twig');
-        echo $template->render(["errors" => $this->errors]);
+        echo $template->render(["errors" => $this->errors, "success" => $this->success]);
     }
 }

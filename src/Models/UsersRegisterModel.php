@@ -3,6 +3,8 @@
 
 namespace App\Models;
 
+use Config\Config;
+
 require_once 'functions.php';
 class UsersRegisterModel extends GeneralModel {
 
@@ -31,5 +33,9 @@ class UsersRegisterModel extends GeneralModel {
         $token = strRandom(60);
         $req->execute([$username, $email, $password, $token]);
         $userId = $this->pdo->lastInsertId();
+//        mail($email, 'Confirmation de création du compte',
+//            "Afin de valider votre compte, merci de cliquer sur ce
+//                    lien\n\n" . Config::getBasePath() . "/connexion?id=$userId&token=$token"
+//        );
     }
 }
