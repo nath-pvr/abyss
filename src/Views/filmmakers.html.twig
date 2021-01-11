@@ -1,0 +1,26 @@
+{% extends "template.html.twig" %}
+{# A refacto dans le template affiché sur toutes les pages #}
+{% block navigation %}
+        <nav>
+            <ul>
+                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
+                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
+                <li>
+                    <input type="text" name="search" placeholder="Rechercher...">
+                </li>
+            </ul>
+        </nav>
+{% endblock %}
+
+{% block body %}
+    {% for filmmaker in filmmakers %}
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ filmmaker.firstname }} </h5> 
+                <h5 class="card-title">{{ filmmaker.lastname }} </h5> 
+                <p class="card-text">{{ filmmaker.biography }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

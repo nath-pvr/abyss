@@ -1,4 +1,4 @@
-{% extends "template.html.txig" %}
+{% extends "template.html.twig" %}
 
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{{ baseUrl }}/assets/css/style-film.scss">
@@ -15,7 +15,7 @@
 						<div class="text-movie-cont">
 							<div class="mr-grid1">
 								<div class="col1">
-									<h1 class="title">{{ <pre>
+									<h1 class="title"><pre>
                                     {{ dump(movies) }}
 									</pre>
 									}}</h1>
@@ -62,3 +62,4 @@
 		<h1>Film non trouvé</h1>
 	{% endif %}
 </div></div>{% endblock %}
+
