@@ -36,7 +36,7 @@ class UsersRegisterModel extends GeneralModel {
         //TODO Mail de confirmation
 //        mail($email, 'Confirmation de création du compte',
 //            "Afin de valider votre compte, merci de cliquer sur ce
-//                    lien\n\n" . Config::getBasePath() . "/connexion?id=$userId&token=$token"
+//                    lien\n\n" . Config::getBasePath() . "/connexion/$userId/$token"
 //        );
     }
 }

@@ -36,7 +36,11 @@ $router->map('GET', '/connexion', function () {
     $controller->connexion();
 });
 
-//TODO Route connexion avec id et token en paramètres
+$router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
+    //TODO Changer l'objet controller pour le controller de connexion
+    $controller = new PageController();
+    $controller->confirm($id, $token);
+});
 
 $router->map('GET', '/film/[i:id]', function ($id) {
     $controller = new PageController();
