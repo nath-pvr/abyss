@@ -30,13 +30,6 @@ class PageController extends GeneralController
         echo "connexion";
     }
 
-    //TODO à Ajouter dans la partie connexion + Modifier le code pour confirmer l'inscription
-    public function confirm($id, $token): void
-    {
-        //TODO $id et $token à récupérer avec GET + dans la bdd mettre une date dans le champs confirmed_at
-        echo 'Bonjour '. $id . ', tu as confirmé le compte avec le token ' .  $token . '.';
-    }
-
     public function film($id): void
     {
         // Instanciation d'un nouvel objet MovieModel

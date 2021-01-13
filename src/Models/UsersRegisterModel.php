@@ -12,6 +12,13 @@ class UsersRegisterModel extends GeneralModel {
         parent::__construct();
     }
 
+    public function getUserById($id) {
+        $sql = 'SELECT * FROM users WHERE id = :id';
+        $req = $this->pdo->prepare($sql);
+        $req->execute([":id" => $id]);
+        return $req->fetch();
+    }
+
     public function allUsersByPseudo(string $username) {
         $sql = 'SELECT * FROM users WHERE pseudo = ?';
         $req = $this->pdo->prepare($sql);

@@ -10,7 +10,8 @@
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form action="#" method="post">
-					{% if errors.username is defined or errors.email is defined or errors.confirmPassword is defined %}
+					{% if errors.username is defined or errors.email is defined
+                        or errors.confirmPassword is defined or errors.confirmation is defined %}
 						<div class="alert alert-danger">
 							<ul>
 								{% for error in errors %}
@@ -20,7 +21,7 @@
 						</div>
 					{% endif %}
 
-					{% if success.confirmation is defined %}
+					{% if success.confirmationMessage is defined or success.confirmation is defined %}
 						<div class="alert alert-success">
 							<ul>
 								{% for good in success %}

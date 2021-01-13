@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Controllers\UserConfirmationController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
 use App\Controllers\PageController;
@@ -38,7 +39,7 @@ $router->map('GET', '/connexion', function () {
 
 $router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
     //TODO Changer l'objet controller pour le controller de connexion
-    $controller = new PageController();
+    $controller = new UserConfirmationController();
     $controller->confirm($id, $token);
 });
 
