@@ -30,6 +30,7 @@ class UserConfirmationController extends GeneralController
         if ($user && $userToken['confirmation_token'] === $token) {
             $userConfirmation->confirmAccount($id, $token);
             $this->success['confirmation'] = 'Votre compte a bien été confirmé';
+            //TODO Redirection vers page de connexion
 //            header('Location: ' . Config::getBasePath() . '/inscription');
         } elseif ($userToken['confirmation_token'] === null) {
             $this->errors['confirmation'] = "Votre compte a déjà été confirmé. Veuillez essayer de vous connecter";
