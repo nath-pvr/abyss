@@ -38,7 +38,6 @@ $router->map('GET', '/connexion', function () {
 });
 
 $router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
-    //TODO Changer l'objet controller pour le controller de connexion
     $controller = new UserConfirmationController();
     $controller->confirm($id, $token);
 });
