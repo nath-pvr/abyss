@@ -44,10 +44,9 @@ $router->map('POST', '/connexion', function () {
     $controller->userExist();
 });
 
-$router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
+$router->map('GET', '/confirmation/[i:id]/[*:token]', function ($id, $token) {
     $controller = new UserConfirmationController();
     $controller->confirm($id, $token);
-
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {

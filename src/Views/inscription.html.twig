@@ -30,6 +30,15 @@
 							</ul>
 						</div>
 					{% endif %}
+					{% if session.flash.errors is defined %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for error in session.flash.errors %}
+									<li class="text-center">{{ error }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
 					<input class="text" type="text" name="username" placeholder="Nom d'utilisateur">
 					<input class="text email" type="email" name="email" placeholder="Email">
 					<input class="text" type="password" name="password" placeholder="Mot de passe">

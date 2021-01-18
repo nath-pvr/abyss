@@ -40,10 +40,10 @@ class UsersRegisterModel extends GeneralModel {
         $token = strRandom(60);
         $req->execute([$username, $email, $password, $token]);
         $userId = $this->pdo->lastInsertId();
-        //TODO Mail de confirmation
+        //TODO Mail de confirmation + Vérifier si localhost ou pas
 //        mail($email, 'Confirmation de création du compte',
 //            "Afin de valider votre compte, merci de cliquer sur ce
-//                    lien\n\n" . Config::getBasePath() . "/connexion/$userId/$token"
+//                    lien\n\n" . Config::getBasePath() . "/confirmation/$userId/$token"
 //        );
     }
 }
