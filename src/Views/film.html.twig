@@ -2,6 +2,7 @@
 
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{{ baseUrl }}/assets/css/style-film.scss">
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
 {% endblock %}
 
 {% block body %}
@@ -58,6 +59,17 @@
 				</div>
 			</div>
 		</div>
+
+	    <div class="bulles">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+        <img src="../assets/img/bubble.png">
+    </div>
+
 	{% else %}
 		<h1>Film non trouvé</h1>
 	{% endif %}
