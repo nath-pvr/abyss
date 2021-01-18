@@ -3,6 +3,7 @@
 {% block navigation %}
         <nav>
             <ul>
+                {# TODO Vérifier si la super globale $_SESSION['auth'] est initialisée et si oui, rajouter mettre un moyen de se déconnecter #}
                 <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
                 <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
                 <li>
