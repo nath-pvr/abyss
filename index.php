@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Controllers\UserConfirmationController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
 use App\Controllers\PageController;
@@ -34,6 +35,11 @@ $router->map('POST', '/inscription', function () {
 $router->map('GET', '/connexion', function () {
     $controller = new PageController();
     $controller->connexion();
+});
+
+$router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
+    $controller = new UserConfirmationController();
+    $controller->confirm($id, $token);
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
