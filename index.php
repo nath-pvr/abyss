@@ -7,6 +7,7 @@ use Config\Config;
 use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
+use App\Controllers\UsersController;
 /* fin dex Controller exemple */
 
 session_start();
@@ -32,8 +33,13 @@ $router->map('POST', '/inscription', function () {
 });
 
 $router->map('GET', '/connexion', function () {
-    $controller = new PageController();
+    $controller = new UsersController();
     $controller->connexion();
+});
+
+$router->map('POST', '/connexion', function () {
+    $controller = new UsersController();
+    $controller->userExist();
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
