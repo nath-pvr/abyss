@@ -25,10 +25,6 @@ class PageController extends GeneralController
         echo $template->render(["movies" => $movies]);
     }
 
-    public function connexion(): void
-    {
-        echo "connexion";
-    }
 
     public function film($id): void
     {
