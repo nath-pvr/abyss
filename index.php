@@ -42,6 +42,7 @@ $router->map('GET', '/connexion', function () {
 $router->map('POST', '/connexion', function () {
     $controller = new UsersController();
     $controller->userExist();
+});
 
 $router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
     $controller = new UserConfirmationController();
