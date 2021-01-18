@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand"><img src="../assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
                 <form class="d-flex" style="margin-right: 10%;">
-                    <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+                    <input class="form-control me-2 outline-danger" type="search" placeholder="Recherche" aria-label="Search">
                     <button class="btn btn-danger" type="submit">Recherche</button>
                 </form>
             </div>
@@ -29,7 +29,7 @@
         <div class="my-5 text-center container">
             <h3 style="margin-bottom: 5%;">Les plus grand succès</h3>
             <div class="row d-flex align-items-center">
-                <div class="col-1 d-flex align-items-center justify-content-center">
+                <div class="col-1 d-flex">
                     <a href="#carouselExampleIndicators" role="button" data-slide="prev" style="height: 50%; width: 50%">
                         <div class="carousel-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators" data-slide="next" style="height: 50%; width: 50%;">
+                <div class="col-1 d-flex"><a href="#carouselExampleIndicators" data-slide="next" style="height: 50%; width: 50%;">
                         <div class="carousel-nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"></path>
