@@ -5,7 +5,8 @@ namespace App\Controllers;
 use App\Models\UsersModel;
 use Config\Config;
 
-class UsersController extends GeneralController {
+class UsersController extends GeneralController
+{
 
     private array $errors = array();
 
@@ -14,55 +15,48 @@ class UsersController extends GeneralController {
         parent::__construct();
     }
 
-    public function connexion(){
-        $template =$this->twig->load('connexion.html.twig');
+    public function connexion()
+    {
+        $template = $this->twig->load('connexion.html.twig');
         echo $template->render();
     }
 
-    public function userExist() {
-        $email = htmlspecialchars($_POST['email']);
-        if (empty($email)){
-            $this->errors['username'] = "Votre email ou pseudo n'existe pas, merci de vous enregistrer";
-            $template =$this->twig->load('inscription.html.twig');
-            echo $template->render(["errors"=> $this->errors]);
-        } else {
-            $usersModel = new UsersModel();
-            $user = $usersModel->userSelected($email);
-            if($user) {
-              return $this->connect($user);
-            }
-        }
-    }
+    public function connect(): void
+    {
 
-    
-
-    public function connect($user): void{
-    
         $this->errors = array();
-        if (!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
-            $usersModel = new UsersModel();
-            $usersModel->userSelected($_POST['email']);
-            if (empty($this->errors)) {
-                $usersModel = new UsersModel();
-                $users = $usersModel->userSelected($_POST['username'], $_POST['email']);
-                $_SESSION['username'] = $_POST['username'];
-                header("Location: " . Config::getBasePath());
-            }
 
-            if ($user){
-                // génération de la clé de connection persistante.
-                if (password_verify($_POST['password'], $user->password)){
+        if (!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])) {
+            $usersModel = new UsersModel();
+            $user = $usersModel->userSelected($_POST['email']);
+
+            // si j'ai un utilisateur
+            if ($user) {
+                $userPassword = $user['password'];
+
+                // génération de la clé de connection persistante. 
+
+                // $_POST['password'] et le mot de passe de la BDD sont les même, alors je démare la sessuion utilisateur.
+                if (password_verify($_POST['password'], $userPassword)) {
                     $_SESSION['auth'] = $user;
                     $_SESSION['flash']['success'] = 'vous êtes maintenant connecté';
-                    if ($_POST['remember']){
-                    $user->userConnectedToken();
+                    if ($_POST['remember']) {
+                        $remember_token = strRandom(250);
+                        $usersModel->userConnectedToken($user, $remember_token);
+                        setcookie('remember', $user['id'] . '==' . $remember_token . sha1($user['id'] . 'kraken'), time() + 60 * 60 * 24 * 7);
                     }
+                    header('Location: ' . $this->baseUrl);
+                } else {
+                    $_SESSION['flash']['errors'][] = 'Mot de passe incorrect';
+                    header('Location: ' . $this->baseUrl . '/connexion');
                 }
-            }else{
-            $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrecte';
+            }else {
+                $_SESSION['flash']['errors'][] = 'Identifiant incorrect';
+                header('Location: ' . $this->baseUrl . '/connexion');
             }
-        $template = $this->twig->load('index.html.twig');
-        echo $template->render(["errors"=>$this->errors]);
+        } else {
+            $_SESSION['flash']['errors'][] = 'Vous devez remplir tous les champs du formulaire';
+            header('Location: ' . $this->baseUrl . '/connexion');
         }
     }
 }

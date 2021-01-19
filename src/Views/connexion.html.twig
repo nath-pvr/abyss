@@ -10,6 +10,7 @@
 		{{ dump(session) }}
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+
 				<form action="#" method="post">
 					{% if success.confirmationMessage is defined or success.confirmation is defined %}
 						<div class="alert alert-success">
@@ -52,7 +53,9 @@
 					</div>
 					<input type="submit" name="submit" value="Se connecter">
 				</form>
-				<p>Pas encore de compte ? <a href="{{ baseUrl }}/inscription">Inscrivez-vous !</a></p>
+				<p>Pas encore de compte ?
+					<a href="{{ baseUrl }}/inscription">Inscrivez-vous !</a>
+				</p>
 			</div>
 		</div>
 	</div>

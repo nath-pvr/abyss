@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+require_once 'functions.php';
 class UsersModel extends GeneralModel{
 
     public function __construct() {
@@ -11,19 +12,18 @@ class UsersModel extends GeneralModel{
     
     public function userSelected($username){
         // récupération User
-       
-        $sql = 'SELECT user FROM users WHERE username = :username OR email = :username';
+        
+        $sql = 'SELECT * FROM users WHERE (pseudo = :email OR email = :email)';
         $req =$this->pdo->prepare($sql);
-        $req->execute([":username"=>$username]);
-        $req->fetch();
+        $req->execute([":email"=>$username]);
+        return $req->fetch();
        
     }
     
-    public function userConnectedToken($user){
-        $remember_token = strRandom(250);
+    public function userConnectedToken($user, $remember_token){        
         $req = $this->pdo->prepare('UPDATE users SET remember_token = ? WHERE id = ?');
-        $req->execute([$remember_token, $user->id]);
-        setcookie('remember', $user->id .'==' . $remember_token . sha1($user->id . 'kraken'), time() + 60 * 60 * 24 * 7 );
+        $req->execute([$remember_token, $user['id']]);
+        
     }    
 }
 
