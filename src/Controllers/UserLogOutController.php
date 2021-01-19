@@ -7,15 +7,17 @@ namespace App\Controllers;
 class UserLogOutController extends GeneralController
 {
 
+    private array $success = array();
+
     public function __construct() {
         parent::__construct();
     }
 
     public function logOut(): void {
-        setcookie('remeber', NULL, -1);
+        setcookie('remember', NULL, -1);
         unset($_SESSION['auth']);
-        $_SESSION['flash']['success'] = 'Vous êtes maintenant déconnecté';
+        $this->success['logout'] = 'Vous êtes maintenant déconnecté';
+        $_SESSION['flash']['success'] = $this->success;
         header('Location: ' . $this->baseUrl . '/connexion');
     }
-
 }
