@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand"><img src="../assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
                 <form class="d-flex" style="margin-right: 10%;">
-                    <input class="form-control me-2 outline-danger" type="search" placeholder="Recherche" aria-label="Search">
+                    <input class="form-control me-2 outline-danger" type="search" placeholder="Cherche dans les Abyss" aria-label="Search">
                     <button class="btn btn-danger" type="submit">Recherche</button>
                 </form>
             </div>
