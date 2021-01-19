@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Controllers\UserForgotPassController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
 use App\Controllers\UserConfirmationController;
@@ -53,6 +54,16 @@ $router->map('GET', '/confirmation/[i:id]/[*:token]', function ($id, $token) {
 $router->map('GET', '/logout', function() {
    $controller = new UserLogOutController();
    $controller->logOut();
+});
+
+$router->map('GET', '/oublie', function() {
+   $controller = new UserForgotPassController();
+   $controller->forgot();
+});
+
+$router->map('POST', '/oublie', function() {
+    $controller = new UserForgotPassController();
+    $controller->forgotten();
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
