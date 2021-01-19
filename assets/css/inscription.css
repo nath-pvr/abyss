@@ -262,7 +262,6 @@ input[type="submit"]:hover {
   color: #72B8C7;
 }
 
-/*-- //main --*/
 
 /*-- checkbox --*/
 
@@ -349,8 +348,13 @@ input.checkbox:checked:after {
   overflow: hidden;
 }
 
+/*-- Erreur 404 --*/
+
 .error{
   margin-top: 20%;
+}
+#msg{
+  margin-top: 5%;
 }
 
 /*-- responsive --*/
