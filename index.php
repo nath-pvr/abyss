@@ -76,7 +76,7 @@ $router->map('GET', '/acteur/[i:id]', function ($id) {
     $controller->actor($id);
 });
 
-
+//router pour la page 404
 $router->map('GET', '/404', function () {
     $controller = new PageController();
     $controller->error404();

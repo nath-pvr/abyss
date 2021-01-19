@@ -75,6 +75,7 @@ class PageController extends GeneralController
        echo $template->render(["actor" => $actor]); 
     }
 
+    // fonction error404 avec la vue error404.html.twig
     public function error404(): void
     {
         $template = $this->twig->load('error404.html.twig');

@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block navigation %}
+{# Conserver la navigation pour que l'utilisateur puisse revenir sur le site malgré qu'il soit sur la page 404 #}
 	<nav>
 		<ul>
 			<li>
@@ -20,9 +21,12 @@
 {% endblock %}
 
 
-{% block body %}
+{% block body %} 
+{#Dans le SVG les deux paramètre Height et Width sont supprimé pour ne pas géné l'intégration du SVG#}
+{#Intégration direct en SVG ==> le fond est celui du template.html.twig #}
 	<div class="container">
-		<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 461.783 257.382" enable-background="new 0 0 461.783 257.382" xml:space="preserve">
+		<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" 
+		viewbox="0 0 461.783 257.382" enable-background="new 0 0 461.783 257.382" xml:space="preserve">
 			<g>
 				<g>
 					<path fill="#C42034" stroke="#000000" d="M275.46,147.734c0,29.196-5.386,52.846-16.157,70.95
@@ -1088,5 +1092,6 @@
 			</g>
 		</svg>
 	</div>
+	{# H3 pour stylisation !≠ ==> sémentique SEO #}
 	<h3>Désolé votre requête n'a pas atteint nos profondeurs abyssales</h3>
 {% endblock %}
