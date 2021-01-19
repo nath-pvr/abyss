@@ -14,6 +14,7 @@ abstract class GeneralController
     {
         $this->twig = self::getTwig();
         $this->baseUrl = Config::getBaseUrl();
+        unset($_SESSION['flash']);
     }
 
     private static function getTwig()

@@ -39,7 +39,7 @@ $router->map('GET', '/connexion', function () {
 
 $router->map('POST', '/connexion', function () {
     $controller = new UsersController();
-    $controller->userExist();
+    $controller->connect();
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {

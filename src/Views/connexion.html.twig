@@ -9,7 +9,18 @@
 		<h3>Connexion</h3>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+
 				<form action="#" method="post">
+					{% if session.flash.errors is defined %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for error in session.flash.errors %}
+									<li class="text-center">{{ error }}</li>
+
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
 					<input class="text email" type="text" name="email" placeholder="Email ou Pseudo">
 					<input class="text" type="password" name="password" placeholder="Mot de passe">
 					<div class="wthree-text">
@@ -24,7 +35,9 @@
 					</div>
 					<input type="submit" name="submit" value="Se connecter">
 				</form>
-				<p>Pas encore de compte ? <a href="{{ baseUrl }}/inscription">Inscrivez-vous !</a></p>
+				<p>Pas encore de compte ?
+					<a href="{{ baseUrl }}/inscription">Inscrivez-vous !</a>
+				</p>
 			</div>
 		</div>
 	</div>
