@@ -45,5 +45,7 @@ class UsersRegisterModel extends GeneralModel {
 //            "Afin de valider votre compte, merci de cliquer sur ce
 //                    lien\n\n" . Config::getBasePath() . "/confirmation/$userId/$token"
 //        );
+        $user = $this->getUserById($userId);
+        $_SESSION['auth'] = $user;
     }
 }

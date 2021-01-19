@@ -2,9 +2,10 @@
 
 require 'vendor/autoload.php';
 
-use App\Controllers\UserConfirmationController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
+use App\Controllers\UserConfirmationController;
+use App\Controllers\UserLogOutController;
 use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
@@ -47,6 +48,11 @@ $router->map('POST', '/connexion', function () {
 $router->map('GET', '/confirmation/[i:id]/[*:token]', function ($id, $token) {
     $controller = new UserConfirmationController();
     $controller->confirm($id, $token);
+});
+
+$router->map('GET', '/logout', function() {
+   $controller = new UserLogOutController();
+   $controller->logOut();
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
