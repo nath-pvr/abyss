@@ -1,28 +1,65 @@
 {% extends "template.html.twig" %}
 
-{% block navigation %}
-        <nav>
-            <ul>
-                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
-                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
-                <li>
-                    <input type="text" name="search" placeholder="Rechercher...">
-                </li>
-            </ul>
-        </nav>
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{{ baseUrl }}/assets/css/style-film.scss">
 {% endblock %}
 
 {% block body %}
-    {% if movie != false %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ movie.title }} </h5> <span>Sortie : {{ movie.annee }}</span>
-                <p>Genre : {{ movie.genre }}</p>
-                <p class="card-text">{{ movie.synopsis }}</p>
-            </div>
-        </div>
-    {% else %}
-        <h1>Film non trouvé</h1>
-    {% endif %}
-{% endblock %}
+	{% if movie != false %}
+
+		<div class="container">
+			<div class="row">
+				<div class="cellphone-container">
+					<div class="movie">
+						<div class="movie-img"></div>
+						<div class="text-movie-cont">
+							<div class="mr-grid1">
+								<div class="col1">
+									<h1 class="title"><pre>
+                                    {{ dump(movies) }}
+									</pre>
+									}}</h1>
+								<ul class="movie-gen">
+									<li class="color li">{{ movies.year }}</li>
+									<li class="color li">{{ movies.gender }}</li>
+								</ul>
+							</div>
+						</div>
+						<div class="mr-grid flex">
+							<div class="m-xy m-left">
+								<h1>Réalisateur</h1>
+								<p class="movie-actors color">
+									{{ artists.firstname }}
+									{{ artists.lastname }}<br>
+									{{ artists.firstname }}
+									{{ artists.lastname }}<br>
+									{{ artists.firstname }}
+									{{ artists.lastname }}</p>
+							</ul>
+						</div>
+					</div>
+					<div class="mr-grid summary-row">
+						<div class="col2">
+							<h3>SYNOPSIS</h3>
+						</div>
+					</div>
+					<div class="mr-grid">
+						<div class="col1">
+							<p class="movie-description color">{{ movies.synopsis }}</p>
+						</div>
+					</div>
+					<div class="mr-grid">
+						<div class="col1">
+							<h3>Commentaires</h3>
+							<textarea name="commentaire" id="" cols="125" rows="10" placeholder="Votre commentaire..."></textarea>
+							<input type="submit" value="Envoyer">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% else %}
+		<h1>Film non trouvé</h1>
+	{% endif %}
+</div></div>{% endblock %}
+
