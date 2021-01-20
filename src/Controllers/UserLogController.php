@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Models\UsersModel;
 use Config\Config;
 
-class UsersController extends GeneralController
+class UserLogController extends GeneralController
 {
 
     private array $errors = array();
@@ -23,8 +23,10 @@ class UsersController extends GeneralController
 
     public function connect(): void
     {
+        if(!empty($_SESSION['auth'])){
+            header('Location: ' . $this->baseUrl);
+        }
 
-        $this->errors = array();
 
         if (!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])) {
             $usersModel = new UsersModel();
@@ -58,5 +60,12 @@ class UsersController extends GeneralController
             $_SESSION['flash']['errors'][] = 'Vous devez remplir tous les champs du formulaire';
             header('Location: ' . $this->baseUrl . '/connexion');
         }
+    }
+
+    public function logOut(): void {
+        setcookie('remeber', NULL, -1);
+        unset($_SESSION['auth']);
+        $_SESSION['flash']['success'] = 'Vous êtes maintenant déconnecté';
+        header('Location: ' . $this->baseUrl . '/connexion');
     }
 }

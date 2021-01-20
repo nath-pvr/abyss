@@ -6,12 +6,11 @@ use App\Controllers\UserForgotPassController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
 use App\Controllers\UserConfirmationController;
-use App\Controllers\UserLogOutController;
 use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
-use App\Controllers\UsersController;
-/* fin dex Controller exemple */
+use App\Controllers\UserLogController;
+/* fin des Controllers exemple */
 
 session_start();
 
@@ -36,13 +35,13 @@ $router->map('POST', '/inscription', function () {
 });
 
 $router->map('GET', '/connexion', function () {
-    $controller = new UsersController();
+    $controller = new UserLogController();
     $controller->connexion();
 });
 
 
 $router->map('POST', '/connexion', function () {
-    $controller = new UsersController();
+    $controller = new UserLogController();
     $controller->connect();
 });
 
@@ -52,7 +51,7 @@ $router->map('GET', '/confirmation/[i:id]/[*:token]', function ($id, $token) {
 });
 
 $router->map('GET', '/logout', function() {
-   $controller = new UserLogOutController();
+   $controller = new UserLogController();
    $controller->logOut();
 });
 
