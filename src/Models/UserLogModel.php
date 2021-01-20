@@ -3,7 +3,7 @@
 namespace App\Models;
 
 require_once 'functions.php';
-class UsersModel extends GeneralModel{
+class UserLogModel extends GeneralModel{
 
     public function __construct() {
         parent::__construct();

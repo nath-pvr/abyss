@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\UsersModel;
+use App\Models\UserLogModel;
 use Config\Config;
 
 class UserLogController extends GeneralController
@@ -29,7 +29,7 @@ class UserLogController extends GeneralController
 
 
         if (!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])) {
-            $usersModel = new UsersModel();
+            $usersModel = new UserLogModel();
             $user = $usersModel->userSelected($_POST['email']);
 
             // si j'ai un utilisateur
