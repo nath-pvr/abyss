@@ -28,11 +28,11 @@
 									<div class="mr-grid1">
 										<div class="col1">
 											<h1 class="title">
-												{{ dump(movies) }}
+												{{ movie.title }}
 											</h1>
 											<ul class="movie-gen">
-												<li class="color li">{{ movies.year }}</li>
-												<li class="color li">{{ movies.gender }}</li>
+												<li class="color li">{{ movie.year }}</li>
+												<li class="color li">{{ movie.gender }}</li>
 											</ul>
 										</div>
 									</div>
@@ -56,7 +56,7 @@
 								</div>
 								<div class="mr-grid">
 									<div class="col1">
-										<p class="movie-description color">{{ movies.synopsis }}</p>
+										<p class="movie-description color">{{ movie.synopsis }}</p>
 									</div>
 								</div>
 								<div class="mr-grid">
