@@ -107,8 +107,11 @@ nav ul li a {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.slide {
+.slidebutton {
   color: aliceblue;
+  height: 50%; 
+  width: 50%;
+
 }
 
 /*-- responsive --*/
