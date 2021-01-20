@@ -23,8 +23,10 @@ class UsersController extends GeneralController
 
     public function connect(): void
     {
+        if(!empty($_SESSION['auth'])){
+            header('Location: ' . $this->baseUrl);
+        }
 
-        $this->errors = array();
 
         if (!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])) {
             $usersModel = new UsersModel();
