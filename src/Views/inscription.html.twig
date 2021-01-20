@@ -16,10 +16,33 @@
 							<ul>
 								{% for error in errors %}
 									<li class="text-center">{{ error }}</li>
+<<<<<<< HEAD
+=======
 								{% endfor %}
 							</ul>
 						</div>
 					{% endif %}
+
+					{% if success.confirmationMessage is defined or success.confirmation is defined %}
+						<div class="alert alert-success">
+							<ul>
+								{% for good in success %}
+									<li class="text-center">{{ good }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if session.flash.errors is defined %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for error in session.flash.errors %}
+									<li class="text-center">{{ error }}</li>
+>>>>>>> develop
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+<<<<<<< HEAD
 
 					{% if success.confirmationMessage is defined or success.confirmation is defined %}
 						<div class="alert alert-success">
@@ -43,6 +66,12 @@
 					<input class="text email" type="email" name="email" placeholder="Email" required="">
 					<input class="text" type="password" name="password" placeholder="Mot de passe" required="">
 					<input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirmation du mot de passe" required="">
+=======
+					<input class="text" type="text" name="username" placeholder="Nom d'utilisateur">
+					<input class="text email" type="email" name="email" placeholder="Email">
+					<input class="text" type="password" name="password" placeholder="Mot de passe">
+					<input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirmation du mot de passe">
+>>>>>>> develop
 					<input type="submit" name="submit" value="S'inscrire">
 				</form>
 				<p>Vous avez déjà un compte ? <a class="text-nowrap" href="{{ baseUrl }}/connexion">Connectez-vous !</a></p>

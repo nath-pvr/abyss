@@ -25,10 +25,6 @@ class PageController extends GeneralController
         echo $template->render(["movies" => $movies]);
     }
 
-    public function connexion(): void
-    {
-        echo "connexion";
-    }
 
     public function film($id): void
     {
@@ -78,4 +74,13 @@ class PageController extends GeneralController
        $template = $this->twig->load('actor.html.twig');
        echo $template->render(["actor" => $actor]); 
     }
+
+    // fonction error404 avec la vue error404.html.twig
+    public function error404(): void
+    {
+        $template = $this->twig->load('error404.html.twig');
+        echo $template->render();
+    }
+
+    
 }
