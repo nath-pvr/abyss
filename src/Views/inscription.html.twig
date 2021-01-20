@@ -7,6 +7,7 @@
     <div class="main-w3layouts wrapper">
     <img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss">
 		<h3>Inscription</h3>
+		{{ dump(session) }}
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<form action="#" method="post">
@@ -30,20 +31,22 @@
 							</ul>
 						</div>
 					{% endif %}
+					{% if session.flash.errors is defined %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for error in session.flash.errors %}
+									<li class="text-center">{{ error }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
 					<input class="text" type="text" name="username" placeholder="Nom d'utilisateur">
 					<input class="text email" type="email" name="email" placeholder="Email">
 					<input class="text" type="password" name="password" placeholder="Mot de passe">
 					<input class="text w3lpass" type="password" name="confirmPassword" placeholder="Confirmation du mot de passe">
-					<div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox">
-							<span>Se souvenir de moi</span>
-						</label>
-						<div class="clear"> </div>
-					</div>
 					<input type="submit" name="submit" value="S'inscrire">
 				</form>
-				<p>Vous avez déjà un compte ? <a href="{{ baseUrl }}/connexion">Connectez-vous !</a></p>
+				<p>Vous avez déjà un compte ? <a class="text-nowrap" href="{{ baseUrl }}/connexion">Connectez-vous !</a></p>
 			</div>
 		</div>
 	</div>

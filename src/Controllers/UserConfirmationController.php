@@ -23,22 +23,23 @@ class UserConfirmationController extends GeneralController
     {
         $users = new UsersRegisterModel();
         $user = $users->getUserById($id);
-
+//
         $userConfirmation = new UserConfirmationModel();
         $userToken = $userConfirmation->hasConfirmationToken($id);
-
+//
         if ($user && $userToken['confirmation_token'] === $token) {
             $userConfirmation->confirmAccount($id, $token);
             $this->success['confirmation'] = 'Votre compte a bien été confirmé';
-            //TODO Redirection vers page de connexion
-//            header('Location: ' . Config::getBasePath() . '/inscription');
+            $_SESSION['flash']['success'] = $this->success;
         } elseif ($userToken['confirmation_token'] === null) {
-            $this->errors['confirmation'] = "Votre compte a déjà été confirmé. Veuillez essayer de vous connecter";
+            $this->errors['confirmation'] = "Il semblerait que votre compte a déjà été confirmé. Veuillez essayer de vous connecter";
+            $_SESSION['flash']['errors'] = $this->errors;
+            header('Location: ' . $this->baseUrl . '/connexion');
         } else {
             $this->errors['confirmation'] = 'Votre confirmation du compte n\'a pas pu se faire';
+            $_SESSION['flash']['errors'] = $this->errors;
+            header('Location: ' . $this->baseUrl . '/inscription');
         }
-
-        $template = $this->twig->load('inscription.html.twig');
-        echo $template->render(["errors" => $this->errors, "success" => $this->success]);
+        header('Location: ' . $this->baseUrl . '/connexion');
     }
 }
