@@ -69,3 +69,9 @@ body {
 	animation-delay: 7s;
 	width: 35px;
 }
+
+.d {
+	position: fixed;
+	width: 100%;
+}
+
