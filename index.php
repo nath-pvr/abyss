@@ -91,6 +91,12 @@ $router->map('GET', '/acteur/[i:id]', function ($id) {
     $controller->actor($id);
 });
 
+//router pour la page 404
+$router->map('GET', '/404', function () {
+    $controller = new PageController();
+    $controller->error404();
+});
+
 
 $match = $router->match();
 
@@ -99,5 +105,7 @@ if (is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 } else {
     // no route was matched
-    header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+
+    //header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
+   header("Location: " . Config::getBasePath() . "/404");
 }
