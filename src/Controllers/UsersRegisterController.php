@@ -58,6 +58,9 @@ class UsersRegisterController extends GeneralController {
 
     // Affichage du template d'inscription utilisateurs
     public function register(): void {
+        if(!empty($_SESSION['auth'])){
+            header('Location: ' . $this->baseUrl);
+        }
         $this->errors =  array();
         if (!empty($_POST['submit'])) {
             $this->usernameVerify($_POST['username']);
@@ -65,7 +68,7 @@ class UsersRegisterController extends GeneralController {
             $this->passwordVerify($_POST['password']);
             $this->confirmPasswordVerify($_POST['confirmPassword']);
             if (empty($this->errors)) {
-                $this->success['confirmationMessage'] = "Veuillez confirmer cotre compte. Un mail vous a été envoyé";
+                $this->success['confirmationMessage'] = "Veuillez confirmer votre compte. Un mail vous a été envoyé";
                 $usersModel = new UsersRegisterModel();
                 $usersModel->addUser($_POST['username'], $_POST['email']);
 //                header("Location: " . Config::getBasePath());

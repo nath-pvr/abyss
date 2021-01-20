@@ -2,14 +2,15 @@
 
 require 'vendor/autoload.php';
 
-use App\Controllers\UserConfirmationController;
+use App\Controllers\UserForgotPassController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
+use App\Controllers\UserConfirmationController;
 use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
-use App\Controllers\UsersController;
-/* fin dex Controller exemple */
+use App\Controllers\UserLogController;
+/* fin des Controllers exemple */
 
 session_start();
 
@@ -34,20 +35,34 @@ $router->map('POST', '/inscription', function () {
 });
 
 $router->map('GET', '/connexion', function () {
-    $controller = new UsersController();
+    $controller = new UserLogController();
     $controller->connexion();
 });
 
 
 $router->map('POST', '/connexion', function () {
-    $controller = new UsersController();
-    $controller->userExist();
+    $controller = new UserLogController();
+    $controller->connect();
 });
 
-$router->map('GET', '/connexion/[i:id]/[*:token]', function ($id, $token) {
+$router->map('GET', '/confirmation/[i:id]/[*:token]', function ($id, $token) {
     $controller = new UserConfirmationController();
     $controller->confirm($id, $token);
+});
 
+$router->map('GET', '/logout', function() {
+   $controller = new UserLogController();
+   $controller->logOut();
+});
+
+$router->map('GET', '/oublie', function() {
+   $controller = new UserForgotPassController();
+   $controller->forgot();
+});
+
+$router->map('POST', '/oublie', function() {
+    $controller = new UserForgotPassController();
+    $controller->forgotten();
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
@@ -83,8 +98,6 @@ $router->map('GET', '/404', function () {
 });
 
 
-
-
 $match = $router->match();
 
 // call closure or throw 404 status
@@ -92,6 +105,7 @@ if (is_array($match) && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']);
 } else {
     // no route was matched
+
     //header($_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
    header("Location: " . Config::getBasePath() . "/404");
 }

@@ -3,8 +3,12 @@
 {% block navigation %}
         <nav>
             <ul>
-                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
-                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
+                {% if session.auth is defined %}
+                    <li><a href="{{ baseUrl }}/logout">Se déconnecter</a></li>
+                {% else %}
+                    <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
+                    <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
+                {% endif %}
                 <li>
                     <input type="text" name="search" placeholder="Rechercher...">
                 </li>
