@@ -21,7 +21,7 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	position: absolute;
-	bottom: -50%;
+	bottom: -100%;
 }
 
 @keyframes bulles {
@@ -39,7 +39,7 @@ body {
 		opacity: 0.5;
 	}
 	100% {
-		transform: translateY(-120vh);
+		transform: translateY(-150vh);
 		opacity: 0;
 	}
 }
