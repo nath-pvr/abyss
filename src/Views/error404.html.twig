@@ -4,10 +4,11 @@
 {% endblock %}
 
 {% block body %}
+	<img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss marge">
+
 	{#Dans le SVG les deux paramètre Height et Width sont supprimé pour ne pas géné l'intégration du SVG#}
 	{#Intégration direct en SVG ==> le fond est celui du template.html.twig #}
-	<div class="container error">
-		 <div class="row">
+		<div class="container error"> <div class="row">
 			<?xml version="1.0" encoding="utf-8"?>
 			<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="950px" height="257.382px" viewBox="0 0 461.783 257.382" enable-background="new 0 0 461.783 257.382" xml:space="preserve">
 				<path d="m275.46 147.73c0 29.196-5.386 52.846-16.157 70.95-10.976 18.512-25.55 27.768-43.725 27.768-17.152 0-30.962-9.214-41.428-27.645-10.056-17.86-15.084-40.612-15.084-68.259 0-27.971 4.927-51.172 14.779-69.603 10.414-19.408 24.25-29.113 41.504-29.113 18.939 0 33.692 8.42 44.261 25.26 10.567 16.842 15.85 40.389 15.85 70.642zm-58.12-73.882c-4.901 0-8.475 10.112-10.721 30.336-1.379 12.64-2.067 26.3-2.067 40.979 0 15.412 0.79 30.539 2.374 45.382 2.501 23.079 6.355 34.618 11.563 34.618 8.576 0 12.864-20.021 12.864-60.062 0-23.649-0.459-41.142-1.378-52.478-1.992-25.85-6.204-38.775-12.635-38.775z" fill="#C42034" stroke="#000"/>
@@ -158,5 +159,5 @@
 		</div>
 	</div>
 	{# H3 pour stylisation !≠ ==> sémentique SEO #}
-		<h3 id="msg">Désolé votre requête n'a pas atteint nos profondeurs abyssales</h3>
-	{% endblock %}
+	<h3 id="msg">Désolé votre requête n'a pas atteint nos profondeurs abyssales</h3>
+{% endblock %}
