@@ -10,6 +10,7 @@ use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
 use App\Controllers\UserLogController;
+use \App\Controllers\CommentsController;
 /* fin des Controllers exemple */
 
 session_start();
@@ -66,10 +67,14 @@ $router->map('POST', '/oublie', function() {
 });
 
 $router->map('GET', '/film/[i:id]', function ($id) {
-    $controller = new PageController();
+    $controller = new MovieController();
     $controller->film($id);
 });
 
+$router->map('POST', '/film/[i:id]', function ($id) {
+    $controller = new CommentsController();
+    $controller->sendComments($id);
+});
 
 $router->map('GET', '/auteurs', function () {
     $controller = new PageController();
