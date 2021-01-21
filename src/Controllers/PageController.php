@@ -82,5 +82,10 @@ class PageController extends GeneralController
         echo $template->render();
     }
 
+    public function thumbnails(): void{
+        $template = $this->twig->load('thumbnails.html.twig');
+       echo $template->render();
+    }
+
     
 }

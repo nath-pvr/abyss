@@ -360,6 +360,27 @@ input.checkbox:checked:after {
   margin-top:5%
 }
 
+
+.abyss-thum{
+  margin-left: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*-- responsive --*/
 
 @media(max-width:1440px) {
