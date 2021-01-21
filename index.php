@@ -97,6 +97,12 @@ $router->map('GET', '/404', function () {
     $controller->error404();
 });
 
+$router->map('GET', '/thumbnails', function () {
+    $controller = new PageController();
+    $controller->thumbnails();
+});
+
+
 
 $match = $router->match();
 
