@@ -36,7 +36,7 @@ class MovieController extends GeneralController
         $comments = $commentModel->getAllComments($id, $sessionPseudo);
 
 
-        $template = $this->twig->load('film.html.twig');
+        $template = $this->twig->load('film2.html.twig');
         echo $template->render([
             "movie" => $movie,
             "comments" => $comments,
