@@ -38,7 +38,7 @@ h3 {
 }
 
 .films {
-  margin-top: 15%;
+  margin-top: 25%;
 }
 
 /*--NavBar--*/
@@ -54,12 +54,10 @@ nav {
   position: fixed;
   line-height: 60px;
   z-index: 100;
-  margin-left: 20%
-  
 }
 
 nav ul {
-  line-height: 60px;
+  line-height: 20px;
   list-style: none;
   background: rgba(0, 0, 0, 0);
   overflow: hidden;
@@ -77,7 +75,7 @@ nav.black ul {
 
 nav ul li {
   display: inline-block;
-  padding: 16px 40px;
+  padding: 10px 30px;
 }
 
 nav ul li a {
@@ -88,7 +86,7 @@ nav ul li a {
 
 .abyss {
   height: 50%;
-  width: 50%;
+  width:50%;
 }
 
 .mef {
@@ -108,12 +106,6 @@ nav ul li a {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.slidebutton {
-  color: aliceblue;
-  height: 50%; 
-  width: 50%;
-
-}
 
 /*-- responsive --*/
 
