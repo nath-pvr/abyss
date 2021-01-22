@@ -27,7 +27,7 @@
 						<div class="container-fluid">
 							<a class="navbar-brand"><img src="assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
 							<form action="{{baseUrl}}/search" method="POST" class="d-flex" style="margin-right: 10%;">
-								<ul>
+								<ul class="text-nowrap">
 									{% if session.auth is defined %}
 										<li>
 											<a href="{{ baseUrl }}/logout">Se déconnecter</a>
@@ -68,7 +68,7 @@
 										</ul>
 									</div>
 								{% endif %}
-								<input class="form-control me-2 outline-danger" type="search" id="search" name="search" placeholder="Cherche dans les Abyss" aria-label="Search">
+								<input class="mef me-2 outline-danger" type="search" id="search" name="search" placeholder="Cherche dans les Abyss" aria-label="Search">
 								<button class="btn btn-danger" type="submit">Recherche</button>
 							</form>
 						</div>
