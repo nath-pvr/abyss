@@ -14,7 +14,7 @@
 			{% for searchMovie in searchResultMovie %}
 
 				<figure class="snip1104">
-					<img src="assets/img/{{searchMovie.img}}" alt="Affiche du Film manquante">
+					<img src="{{baseUrl}}/assets/img/{{searchMovie.img}}" alt="Affiche du film: {{searchMovie.title}}">
 					<figcaption>
 						<h2>
 							<span>{{searchMovie.title}}</span>
@@ -28,7 +28,7 @@
 
 				<figure class="snip1104">
 					
-						<img src="{{baseUrl}}/assets/img/{{searchArtist.img}}"  alt="l1">
+						<img src="{{baseUrl}}/assets/img/artists/{{searchArtist.img}}"  alt="Photo de l'artiste: {{searchArtist.lastname}} {{searchArtist.firstname}}">
 					
 					<figcaption>
 						<h2>
