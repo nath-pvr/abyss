@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Models;
-
-
 class ActorModel extends GeneralModel {
 
     public function __construct() {
