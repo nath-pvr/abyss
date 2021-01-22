@@ -351,11 +351,35 @@ input.checkbox:checked:after {
 /*-- Erreur 404 --*/
 
 .error{
-  margin-top: 20%;
+  margin-top: 5%;
 }
 #msg{
   margin-top: 5%;
 }
+.marge{
+  margin-top:5%
+}
+
+
+.abyss-thum{
+  margin-left: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*-- responsive --*/
 

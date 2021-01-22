@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class="main-w3layouts wrapper">
-		<img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss">
+		<a href="{{ baseUrl }}"><img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss"></a>
 		<h3>Mot de passe oublié</h3>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
@@ -38,9 +38,9 @@
 							</ul>
 						</div>
 					{% endif %}
-					<input class="text email" type="text" name="email" placeholder="Email">
-					<input class="text email" type="password" name="password" placeholder="Mot de passe">
-					<input class="text" type="password" name="passwordConfirm" placeholder="Confirmation de mot de passe">
+					<input class="text email" type="text" name="email" placeholder="Email" required="">
+					<input class="text email" type="password" name="password" placeholder="Mot de passe" required="">
+					<input class="text" type="password" name="passwordConfirm" placeholder="Confirmation de mot de passe" required="">
 					<input type="submit" name="submit" value="Changer mon mot de passe">
 				</form>
 				<p>Pas encore de compte ?

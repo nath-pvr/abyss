@@ -32,7 +32,7 @@ class PageController extends GeneralController
         $movieModel = new MovieModel();
         // Utilise la fonction getOneMovie() de la class MovieModel 
         $movie = $movieModel->getOneMovie($id);
-        $template = $this->twig->load('film.html.twig');
+        $template = $this->twig->load('film2.html.twig');
         echo $template->render(["movie" => $movie]);
     }
 
@@ -81,6 +81,11 @@ class PageController extends GeneralController
         echo $template->render();
     }
 
+    public function thumbnails(): void{
+        $template = $this->twig->load('thumbnails.html.twig');
+       echo $template->render();
+    }
+  
     public function search(): void
     {
         // Si $_POST et $_POST['search'] ne sont pas vide.
@@ -98,4 +103,5 @@ class PageController extends GeneralController
             header('Location: ' . $this->baseUrl);
         }
     }
+
 }

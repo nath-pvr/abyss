@@ -10,6 +10,7 @@ use App\Controllers\PageController;
 use App\Controllers\MovieController;
 use App\Controllers\UsersRegisterController;
 use App\Controllers\UserLogController;
+use \App\Controllers\CommentsController;
 /* fin des Controllers exemple */
 
 session_start();
@@ -70,11 +71,15 @@ $router->map('POST', '/oublie', function() {
     $controller->forgotten();
 });
 
-$router->map('GET', '/film/[i:id]', function ($id) {
-    $controller = new PageController();
+$router->map('GET', '/film2/[i:id]', function ($id) {
+    $controller = new MovieController();
     $controller->film($id);
 });
 
+$router->map('POST', '/film/[i:id]', function ($id) {
+    $controller = new CommentsController();
+    $controller->sendComments($id);
+});
 
 $router->map('GET', '/auteurs', function () {
     $controller = new PageController();
@@ -101,6 +106,12 @@ $router->map('GET', '/404', function () {
     $controller = new PageController();
     $controller->error404();
 });
+
+$router->map('GET', '/thumbnails', function () {
+    $controller = new PageController();
+    $controller->thumbnails();
+});
+
 
 
 $match = $router->match();
