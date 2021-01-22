@@ -8,7 +8,7 @@ use App\Models\MovieModel;
 use App\Models\MoviesModel;
 use App\Models\FilmmakerModel;
 use App\Models\FilmmakersModel;
-
+use App\Models\SearchModel;
 
 class PageController extends GeneralController
 {
@@ -46,7 +46,7 @@ class PageController extends GeneralController
 
     public function filmmaker($id): void
     {
-         // Instanciation d'un nouvel objet Filmmaker
+        // Instanciation d'un nouvel objet Filmmaker
         $filmmakerModel = new FilmmakerModel();
         // Utilise la fonction getOneFilmmaker() de la class MovieModel 
         $filmmaker = $filmmakerModel->getOneFilmmaker($id);
@@ -56,23 +56,22 @@ class PageController extends GeneralController
 
     public function actors(): void
     {
-      $actorsModel = new ActorsModel();
-      
-      $actors = $actorsModel->getAllActors();
+        $actorsModel = new ActorsModel();
 
-      $template = $this->twig->load('actors.html.twig');
-      echo $template->render(["actors"=> $actors]);
+        $actors = $actorsModel->getAllActors();
 
+        $template = $this->twig->load('actors.html.twig');
+        echo $template->render(["actors" => $actors]);
     }
 
     public function actor($id): void
     {
-       // Instanciation d'un nouvel objet ActorModel
-       $actorModel = new ActorModel();
-       // Utilise la fonction getOneActor() de la class ActorModel 
-       $actor = $actorModel->getOneActor($id);
-       $template = $this->twig->load('actor.html.twig');
-       echo $template->render(["actor" => $actor]); 
+        // Instanciation d'un nouvel objet ActorModel
+        $actorModel = new ActorModel();
+        // Utilise la fonction getOneActor() de la class ActorModel 
+        $actor = $actorModel->getOneActor($id);
+        $template = $this->twig->load('actor.html.twig');
+        echo $template->render(["actor" => $actor]);
     }
 
     // fonction error404 avec la vue error404.html.twig
@@ -86,6 +85,23 @@ class PageController extends GeneralController
         $template = $this->twig->load('thumbnails.html.twig');
        echo $template->render();
     }
+  
+    public function search(): void
+    {
+        // Si $_POST et $_POST['search'] ne sont pas vide.
+        if (!empty($_POST) && !empty($_POST['search'])) {
 
-    
+            $searchModel = new SearchModel();
+            $searchMovie = $searchModel->searchMovies($_POST['search']);
+            $searchArtist = $searchModel->searchArtist($_POST['search']);
+
+
+            $template = $this->twig->load('searchResult.html.twig');
+            echo $template->render(["searchResultMovie" => $searchMovie, "searchResultArtist" => $searchArtist]);
+        } else {
+            $_SESSION['flash']['errors'][] = 'Vous devez remplir le champs de recherche';
+            header('Location: ' . $this->baseUrl);
+        }
+    }
+
 }

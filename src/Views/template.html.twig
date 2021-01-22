@@ -20,7 +20,60 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container"> {% block navigation %}{% endblock %}{% block body %}{% endblock %}
+		<div class="container">   {% block navigation %}
+
+	<nav class="navbar navbar-expand-lg fixed-top py-3">
+		<div class="container-fluid">
+			<a class="navbar-brand"><img src="assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
+			<form action="{{baseUrl}}/search" method="POST" class="d-flex" style="margin-right: 10%;">
+				<ul>
+					{% if session.auth is defined %}
+						<li>
+							<a href="{{ baseUrl }}/logout">Se déconnecter</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="{{ baseUrl }}/inscription">Inscription</a>
+						</li>
+						<li>
+							<a href="{{ baseUrl }}/connexion">Se connecter</a>
+						</li>
+					{% endif %}
+				</ul>
+				{% if success.confirmationMessage is defined or success.confirmation is defined %}
+						<div class="alert alert-success">
+							<ul>
+								{% for good in success %}
+									<li class="text-center">{{ good }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if session.flash.errors is defined %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for error in session.flash.errors %}
+									<li class="text-center">{{ error }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if session.flash.success is defined %}
+						<div class="alert alert-success">
+							<ul>
+								{% for good in session.flash.success %}
+									<li class="text-center">{{ good }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+				<input class="form-control me-2 outline-danger" type="search" id="search" name="search" placeholder="Cherche dans les Abyss" aria-label="Search">
+				<button class="btn btn-danger" type="submit">Recherche</button>
+			</form>
+		</div>
+	</nav>
+
+{% endblock %}
 			</div>			<div class="bulles">
 			<img src="{{ baseUrl }}/assets/img/bubble.png">
 			<img src="{{ baseUrl }}/assets/img/bubble.png">
