@@ -17,6 +17,9 @@ class UserLogController extends GeneralController
 
     public function connexion()
     {
+        if(!empty($_SESSION['auth'])){
+            header('Location: ' . $this->baseUrl);
+        }
         $template = $this->twig->load('connexion.html.twig');
         echo $template->render();
     }

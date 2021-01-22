@@ -24,6 +24,11 @@ $router->map('GET', '/', function () {
     $controller->index();
 });
 
+$router->map('POST', '/search', function () {
+    $controller = new PageController();
+    $controller->search();
+});
+
 $router->map('GET', '/inscription', function () {
     $controller = new UsersRegisterController();
     $controller->register();
