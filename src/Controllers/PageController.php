@@ -82,8 +82,10 @@ class PageController extends GeneralController
     }
 
     public function thumbnails(): void{
+        $moviesModel = new MoviesModel();
+        $movies = $moviesModel->getAllMovies();
         $template = $this->twig->load('thumbnails.html.twig');
-       echo $template->render();
+       echo $template->render(['movies' => $movies]);
     }
   
     public function search(): void
