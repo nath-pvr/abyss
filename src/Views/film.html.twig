@@ -1,86 +1,83 @@
-{# {% extends "template.html.twig" %} #}
-<!DOCTYPE html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" type="image/png" href="../assets/img/favicon.png"/>
-		<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
-		{% block css %}
-			<link rel="stylesheet" type="text/css" href="{{ baseUrl }}/assets/css/style-film.scss">
-			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
-			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-			<title>
-				{% block title %}Film
-				{% endblock %}
-			</title>
-		{% endblock %}
+{% extends "template.html.twig" %}
 
-		{% block body %}
-				<a href="{{ baseUrl }}"><img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class=""></a>
-			{% if movie != false %}
-				<div class="container">
-					<div class="row">
-						<div class="cellphone-container">
-							<div class="movie">
-								<div class="movie-img"></div>
-								<div class="text-movie-cont">
-									<div class="mr-grid1">
-										<div class="col1">
-											<h1 class="title">
-												{{ movie.title }}
-											</h1>
-											<ul class="movie-gen">
-												<li class="color li">{{ movie.year }}</li>
-												<li class="color li">{{ movie.gender }}</li>
-											</ul>
-										</div>
-									</div>
-									<div class="mr-grid flex">
-										<div class="m-xy m-left">
-											<h1>Réalisateur</h1>
-											<p class="movie-actors color">
-												{{ artists.firstname }}
-												{{ artists.lastname }}<br>
-												{{ artists.firstname }}
-												{{ artists.lastname }}<br>
-												{{ artists.firstname }}
-												{{ artists.lastname }}</p>
-										</ul>
-									</div>
-								</div>
-								<div class="mr-grid summary-row">
-									<div class="col2">
-										<h3>SYNOPSIS</h3>
-									</div>
-								</div>
-								<div class="mr-grid">
-									<div class="col1">
-										<p class="movie-description color">{{ movie.synopsis }}</p>
-									</div>
-								</div>
-								<div class="mr-grid">
-									<div class="col1">
-										<h3>Commentaires</h3>
-										<textarea name="commentaire" id="" cols="125" rows="10" placeholder="Votre commentaire..."></textarea>
-										<input type="submit" value="Envoyer">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+{% block title %}
+    Film | {{ movie.title }}
+{% endblock %}
 
-				{% else %}
-					<h1>Film non trouvé</h1>
-				{% endif %}
-			</div>
-		</head>
-	</html>
-</div></div><div class="bulles">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png">
-<img src="../assets/img/bubble.png"></div>{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ baseUrl }}/assets/css/film.css">
+{% endblock %}
+
+{% block body %}
+    <div class="row mt-5">
+        {% if movie != false %}
+        <div class="col-8 offset-md-2">
+            <img src="{{ baseUrl }}/assets/img/films/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">
+        </div>
+        {# <div class="content-div-title">
+            <h1 class="titles text-center text-nowrap">{{ movie.title }}</h1>
+        </div> #}
+        <div class="content-bg col-8 offset-md-2 px-4 mb-5">
+            <div class="content-div col-12">
+                <h1 class="titles t text-center">{{ movie.title }}</h1>
+                <h5 class="titles text-center text-nowrap">Réalisateur(s) :</h5>
+                {# TODO Boucle for pour rechercher le réalisateur du film #}
+                <h5 class="titles2 text-center text-nowrap">Distribution :</h5>
+                {% for artist in artists %}
+                    <p class="text-center">{{ artist.firstname }} {{ artist.lastname }}</p>
+                {% endfor %}
+                <h5 class="titles2 text-center text-nowrap">Genre :</h5>
+                <p class="col-12 text-center f-text">{{ movie.gender }}</p>
+                <h5 class="titles2 text-center text-nowrap">Année :</h5>
+                <p class="col-12 text-center f-text">{{ movie.year }}</p>
+            </div>
+            <div class="content-div col-12">
+                <h5 class="titles2 text-center text-lg-start">Synopsis :</h5>
+                <p class="col-12 text f-text">{{ movie.synopsis }}</p>
+            </div>
+            <div class="content-div mt-5 col-12">
+                <h5 class="titles2 text-center text-lg-start text-nowrap">Commentaires :</h5>
+            </div>
+            <div class="col-12 mt-3 mb-5">
+                    {% for comment in comments %}
+                        <div class="grey-bg d-flex justify-content-between">
+                            <div class="d-flex flex-column">
+                                <span>{{ comment.pseudo }}</span>
+                                <span>{{ comment.date_comment }}</span>
+                            </div>
+                            <div>
+                                <span class="my-auto">{{ comment.comment }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+            {% if session.flash.errors is defined %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for error in session.flash.errors %}
+                                <li class="text-center">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% elseif session.flash.success is defined %}
+                    <div class="alert alert-success">
+                        <ul>
+                            {% for good in session.flash.success %}
+                                <li class="text-center">{{ good }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% endif %}
+            <form action="" method="post">
+                <textarea class="col-12 mt-3 ml-3" name="commentaire" id="commentaires" cols="135" rows="8" placeholder="Votre commentaire..."></textarea>
+                <div class="submit-button">
+                    <button class="button col-6 col-lg-2 mt-3" type="submit" name="submit">Envoyer</button>
+                </div>
+            </form>
+        </div>
+        {% else %}
+            <h1>Aucun film n'a été trouvé</h1>
+        {% endif %}
+    </div>
+{% endblock %}
+
