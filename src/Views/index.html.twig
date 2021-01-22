@@ -3,33 +3,6 @@
 	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/movies.css">
 {% endblock %}
 
-{% block navigation %}
-
-	<nav class="navbar navbar-expand-lg fixed-top py-3">
-		<div class="container-fluid">
-			<a class="navbar-brand"><img src="assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
-			<form class="d-flex" style="margin-right: 10%;">
-				<ul>
-					{% if session.auth is defined %}
-						<li>
-							<a href="{{ baseUrl }}/logout">Se déconnecter</a>
-						</li>
-					{% else %}
-						<li>
-							<a href="{{ baseUrl }}/inscription">Inscription</a>
-						</li>
-						<li>
-							<a href="{{ baseUrl }}/connexion">Se connecter</a>
-						</li>
-					{% endif %}
-				</ul>
-				<input class="form-control me-2 outline-danger" type="search" placeholder="Cherche dans les Abyss" aria-label="Search">
-				<button class="btn btn-danger" type="submit">Recherche</button>
-			</form>
-		</div>
-	</nav>
-
-{% endblock %}
 
 {% block body %}
 	<section class="films">

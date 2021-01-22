@@ -1,0 +1,50 @@
+{% extends "template.html.twig" %}
+
+{% block css %}
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/thumbnails.css">
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
+{% endblock %}
+
+{% block body %}
+	<section>
+		<div class="row">
+
+			<a href="{{ baseUrl }}"><img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss abyss-thum"></a>
+
+			<h3>Résultat de votre recherche</h3>
+            
+           
+			{% for searchMovie in searchResultMovie %}
+                
+				<figure class="snip1104">
+					<a href="{{baseUrl}}/film/{{searchMovie.id}}">
+						<img src="assets/img/{{searchMovie.img}}" class="d-block w-100" alt="l1">
+					</a>
+                                        
+					<figcaption>
+						<h2>
+							<span>{{searchMovie.title}}</span>
+						</h2>
+					</figcaption>
+                </figure>
+                {% endfor %}
+
+				{% for searchArtist in searchResultArtist %}
+                
+                <figure class="snip1104">
+					<a href="{{baseUrl}}/film/{{searchArtist.id}}">
+						<img src="assets/img/{{searchArtist.img}}" class="d-block w-100" alt="l1">
+					</a> 
+                    
+					<figcaption>
+						<h2>
+							<span>{{searchArtist.lastname}}</span>
+							<span>{{searchArtist.firstname}}</span>
+						</h2>
+					</figcaption>	
+				</figure>
+                {% endfor %}
+				
+			</div>
+		</section>
+	{% endblock %}
