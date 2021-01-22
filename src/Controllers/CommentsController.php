@@ -37,6 +37,6 @@ class CommentsController extends GeneralController
             $this->errors['error'] = 'Vous devez être connecté pour pouvoir poster un commentaire';
             $_SESSION['flash']['errors'] = $this->errors;
         }
-        header('Location: ' . $this->baseUrl . '/film2/' . $id);
+        header('Location: ' . $this->baseUrl . '/film/' . $id);
     }
 }
