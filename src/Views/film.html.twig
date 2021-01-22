@@ -10,6 +10,7 @@
 
 {% block body %}
     <div class="row mt-5">
+        {{ dump(session) }}
         {% if movie != false %}
         <div class="col-8 offset-md-2">
             <img src="{{ baseUrl }}/assets/img/films/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">

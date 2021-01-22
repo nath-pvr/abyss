@@ -19,21 +19,26 @@ class CommentsController extends GeneralController
     public function sendComments($id): void
     {
         if (isset($_SESSION['auth'], $_POST['submit'])) {
-            if (!empty($_POST['commentaire'])) {
-                $comments = htmlspecialchars($_POST['commentaire']);
-                $sessionId = $_SESSION['auth']['id'];
-
-                $commentModel = new CommentsModel();
-                $commentModel->insertComment($sessionId, $id, $comments);
-
-                $this->success['sent'] = 'Votre message a été envoyé';
-                $_SESSION['flash']['success'] = $this->success;
-            } else {
-                $this->errors['comment'] = 'Vous n\'avez pas rempli tous les champs nécessaires à 
-                    l\'envoie du commentaire';
+            if ($_SESSION['auth']['confirmation_token'] !== null) {
+                $this->errors['token'] = 'Votre compte n\'a pas encore été confirmé. Vérifiez votre adresse mail.';
                 $_SESSION['flash']['errors'] = $this->errors;
+            } else if ($_SESSION['auth']['confirmation_token'] === null) {
+                if (!empty($_POST['commentaire'])) {
+                    $comments = htmlspecialchars($_POST['commentaire']);
+                    $sessionId = $_SESSION['auth']['id'];
+
+                    $commentModel = new CommentsModel();
+                    $commentModel->insertComment($sessionId, $id, $comments);
+
+                    $this->success['sent'] = 'Votre message a été envoyé';
+                    $_SESSION['flash']['success'] = $this->success;
+                } else {
+                    $this->errors['comment'] = 'Vous n\'avez pas rempli tous les champs nécessaires à 
+                    l\'envoie du commentaire';
+                    $_SESSION['flash']['errors'] = $this->errors;
+                }
             }
-        } else {
+        }else {
             $this->errors['error'] = 'Vous devez être connecté pour pouvoir poster un commentaire';
             $_SESSION['flash']['errors'] = $this->errors;
         }

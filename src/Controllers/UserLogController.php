@@ -70,7 +70,7 @@ class UserLogController extends GeneralController
     }
 
     public function logOut(): void {
-        setcookie('remeber', NULL, -1);
+        setcookie('remember', NULL, -1);
         unset($_SESSION['auth']);
         $this->success['logout'] = 'Vous êtes maintenant déconnecté';
         $_SESSION['flash']['success'] = $this->success;
