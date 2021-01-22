@@ -2,7 +2,7 @@
 
 
 {% block title %}
-        Acteur | {{ artist.firstname }}{{ artist.lastname }}
+    Film | {{ artists.firstname }}
 {% endblock %}
 
 {% block css %}
@@ -11,30 +11,29 @@
 {% endblock %}
 
 {% block body %}
-	<img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss marge">
-    <div class="row mt-5">
-        <div class="col-8 offset-md-2">
-            <img src="{{ baseUrl }}/assets/img/mer.jpg" alt="Affiche du film: ">
+    <div class="row">
+        {% if movie != false %}
+        <div class="col-12">
+            <img src="{{ baseUrl }}/assets/img/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">
         </div>
-        {# <div class="content-div-title">
-
-        </div> #}
-        <div class="content-bg col-8 offset-md-2 px-4 mb-5">
+        <div class="content-div-title">
+            <h1 class="titles text-center text-nowrap">{{ movie.title }}</h1>
+        </div>
+        <div class="content-bg col-12 px-4 mb-5">
             <div class="content-div col-12">
-                <h1 class="titles text-center text-nowrap">{{ artist.firstname }}{{ artist.lastname }}</h1>
-                <h5 class="titles text-center text-nowrap">Film(s) :</h5>
+                <h5 class="titles text-center text-nowrap">Réalisateur(s) :</h5>
                 {# TODO Boucle for pour rechercher le réalisateur du film #}
-                <h5 class="titles2 text-center text-nowrap">Date de naissance :</h5>
+                <h5 class="titles text-center text-nowrap">Distribution :</h5>
                 {% for artist in artists %}
-                    <p class="text-center">{{ artist.birthday }}</p>
+                    <p class="text-center">{{ artist.firstname }} {{ artist.lastname }}</p>
                 {% endfor %}
             </div>
             <div class="content-div col-12">
-                <h5 class="titles2 text-center text-lg-start">Biographie :</h5>
-                <p class="col-12">{{ artist.biography }}</p>
+                <h5 class="titles text-center text-lg-start">Synopsis :</h5>
+                <p class="col-12">{{ movie.synopsis }}</p>
             </div>
             <div class="content-div mt-5 col-12">
-                <h5 class="titles2 text-center text-lg-start text-nowrap">Commentaires :</h5>
+                <h5 class="titles text-center text-lg-start text-nowrap">Commentaires :</h5>
             </div>
             <div class="col-12 mt-3 mb-5">
                     {% for comment in comments %}
@@ -67,12 +66,24 @@
                     </div>
             {% endif %}
             <form action="" method="post">
-                <textarea class="col-12 mt-3 ml-3" name="commentaire" id="commentaires" cols="135" rows="8" placeholder="Votre commentaire..." required=""></textarea>
+                <textarea class="col-12 mt-3 ml-3" name="commentaire" id="commentaires" cols="135" rows="8" placeholder="Votre commentaire..."></textarea>
                 <div class="submit-button">
                     <button class="button col-6 col-lg-2 mt-3" type="submit" name="submit">Envoyer</button>
                 </div>
             </form>
         </div>
+        {% else %}
+            <h1>Aucun film n'a été trouvé</h1>
+        {% endif %}
     </div>
+{#    <div class="bulles">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#        <img src="{{ baseUrl }}/assets/img/bubble.png">#}
+{#    </div>#}
 {% endblock %}
 
