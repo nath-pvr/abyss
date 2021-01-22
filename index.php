@@ -76,7 +76,7 @@ $router->map('GET', '/film2/[i:id]', function ($id) {
     $controller->film($id);
 });
 
-$router->map('POST', '/film/[i:id]', function ($id) {
+$router->map('POST', '/film2/[i:id]', function ($id) {
     $controller = new CommentsController();
     $controller->sendComments($id);
 });
