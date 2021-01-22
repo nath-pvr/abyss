@@ -66,7 +66,7 @@ $router->map('POST', '/oublie', function() {
     $controller->forgotten();
 });
 
-$router->map('GET', '/film/[i:id]', function ($id) {
+$router->map('GET', '/film2/[i:id]', function ($id) {
     $controller = new MovieController();
     $controller->film($id);
 });
