@@ -32,7 +32,7 @@ class PageController extends GeneralController
         $movieModel = new MovieModel();
         // Utilise la fonction getOneMovie() de la class MovieModel 
         $movie = $movieModel->getOneMovie($id);
-        $template = $this->twig->load('film2.html.twig');
+        $template = $this->twig->load('film.html.twig');
         echo $template->render(["movie" => $movie]);
     }
 
