@@ -8,40 +8,38 @@
 {% block body %}
 	<section>
 		<div class="row">
+    
 			<h3>Résultat de votre recherche</h3>
-            
-           
+
 			{% for searchMovie in searchResultMovie %}
-                
+
 				<figure class="snip1104">
-					<a href="{{baseUrl}}/film/{{searchMovie.id}}">
-						<img src="assets/img/{{searchMovie.img}}" class="d-block w-100" alt="l1">
-					</a>
-                                        
+					<img src="assets/img/{{searchMovie.img}}" alt="Affiche du Film manquante">
 					<figcaption>
 						<h2>
 							<span>{{searchMovie.title}}</span>
 						</h2>
 					</figcaption>
-                </figure>
-                {% endfor %}
+					<a href="{{baseUrl}}/film2/{{searchMovie.id}}"></a>
+				</figure>
+			{% endfor %}
 
-				{% for searchArtist in searchResultArtist %}
-                
-                <figure class="snip1104">
-					<a href="{{baseUrl}}/film/{{searchArtist.id}}">
-						<img src="assets/img/{{searchArtist.img}}" class="d-block w-100" alt="l1">
-					</a> 
-                    
+			{% for searchArtist in searchResultArtist %}
+
+				<figure class="snip1104">
+					
+						<img src="{{baseUrl}}/assets/img/{{searchArtist.img}}"  alt="l1">
+					
 					<figcaption>
 						<h2>
 							<span>{{searchArtist.lastname}}</span>
 							<span>{{searchArtist.firstname}}</span>
 						</h2>
-					</figcaption>	
+					</figcaption>
+					<a href="{{baseUrl}}/acteurs/{{searchArtist.id}}"></a>
 				</figure>
-                {% endfor %}
-				
-			</div>
-		</section>
-	{% endblock %}
+			{% endfor %}
+
+		</div>
+	</section>
+{% endblock %}
