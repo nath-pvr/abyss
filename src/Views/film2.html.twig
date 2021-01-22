@@ -1,6 +1,5 @@
 {% extends "template.html.twig" %}
 
-
 {% block title %}
     Film | {{ movie.title }}
 {% endblock %}
@@ -14,7 +13,7 @@
     <div class="row mt-5">
         {% if movie != false %}
         <div class="col-8 offset-md-2">
-            <img src="{{ baseUrl }}/assets/img/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">
+            <img src="{{ baseUrl }}/assets/img/films/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">
         </div>
         {# <div class="content-div-title">
             <h1 class="titles text-center text-nowrap">{{ movie.title }}</h1>

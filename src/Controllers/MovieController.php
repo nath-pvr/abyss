@@ -26,14 +26,13 @@ class MovieController extends GeneralController
      */
     public function film($id): void
     {
-        $sessionPseudo = $_SESSION['auth']['pseudo'];
         // Instanciation d'un nouvel objet MovieModel
         $movieModel = new MovieModel();
         // Utilise la fonction getOneMovie() de la class MovieModel
         $movie = $movieModel->getOneMovie($id);
 
         $commentModel = new CommentsModel();
-        $comments = $commentModel->getAllComments($id, $sessionPseudo);
+        $comments = $commentModel->getAllComments($id);
 
 
         $template = $this->twig->load('film2.html.twig');
