@@ -8,6 +8,7 @@ use Config\Config;
 class UserLogController extends GeneralController
 {
 
+    private array $success = array();
     private array $errors = array();
 
     public function __construct()
@@ -21,7 +22,10 @@ class UserLogController extends GeneralController
             header('Location: ' . $this->baseUrl);
         }
         $template = $this->twig->load('connexion.html.twig');
-        echo $template->render();
+        echo $template->render([
+            'success' => $this->success,
+            'errors' => $this->errors
+            ]);
     }
 
     public function connect(): void
@@ -68,7 +72,8 @@ class UserLogController extends GeneralController
     public function logOut(): void {
         setcookie('remeber', NULL, -1);
         unset($_SESSION['auth']);
-        $_SESSION['flash']['success'] = 'Vous êtes maintenant déconnecté';
+        $this->success['logout'] = 'Vous êtes maintenant déconnecté';
+        $_SESSION['flash']['success'] = $this->success;
         header('Location: ' . $this->baseUrl . '/connexion');
     }
 }
