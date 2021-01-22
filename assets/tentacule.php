@@ -20,6 +20,9 @@
 		</div>
 		<div class="container">
 			<div class="row">
+				<img src="../assets/img/404.png" alt="404" class="error">
+				<h3 id="msg">Désolé votre requête n'a pas atteint nos profondeurs abyssales</h3>
+
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="318px" height="230px" viewBox="0 0 318 230" enable-background="new 0 0 318 230" xml:space="preserve">
 					<g id="poisson">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M146.566,148.15c0.324,0.025,0.765-0.071,0.952,0.104
