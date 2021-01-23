@@ -1,28 +1,82 @@
 {% extends "template.html.twig" %}
-{# A refacto dans le template affiché sur toutes les pages #}
-{% block navigation %}
-        <nav>
-            <ul>
-                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
-                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
-                <li>
-                    <input type="text" name="search" placeholder="Rechercher...">
-                </li>
-            </ul>
-        </nav>
+
+
+{% block title %}
+        Realisateur | {{ filmmaker.firstname }}{{ filmmaker.lastname }}
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ baseUrl }}/assets/css/film.css">
+    <link rel="stylesheet" href="{{ baseUrl }}/assets/css/inscription.css">
 {% endblock %}
 
 {% block body %}
-    {% if filmmaker != false %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ filmmaker.firstname }} </h5> 
-                <h5 class="card-title">{{ filmmaker.lastname }} </h5> 
-                <p class="card-text">{{ filmmaker.biography }}</p>
-            </div>
+    <div class="row mt-5">
+        {% if filmmaker != false %}
+
+        <div class="col-8 offset-md-2">
+            <img src="{{ baseUrl }}/assets/img/artists/{{filmmaker.img}}" alt="Affiche du film: ">
         </div>
-    {% else %}
-        <h1>Réalisateur non trouvé</h1>
-    {% endif %}
+        {# <div class="content-div-title">
+
+        </div> #}
+        <div class="content-bg col-8 offset-md-2 px-4 mb-5">
+            <div class="content-div col-12">
+                <h1 class="titles text-center text-nowrap">{{ filmmaker.firstname }}{{ filmmaker.lastname }}</h1>
+                <h5 class="titles text-center text-nowrap">Film(s) :</h5>
+                {# TODO Boucle for pour rechercher le réalisateur du film #}
+                <h5 class="titles2 text-center text-nowrap">Date de naissance :</h5>
+                
+                    <p class="text-center">{{ filmmaker.birthday }}</p>
+                
+            </div>
+            <div class="content-div col-12">
+                <h5 class="titles2 text-center text-lg-start">Biographie :</h5>
+                <p class="col-12">{{ filmmaker.biography }}</p>
+            </div>
+            <div class="content-div mt-5 col-12">
+                <h5 class="titles2 text-center text-lg-start text-nowrap">Commentaires :</h5>
+            </div>
+            <div class="col-12 mt-3 mb-5">
+                    {% for comment in comments %}
+                        <div class="grey-bg d-flex justify-content-between">
+                            <div class="d-flex flex-column">
+                                <span>{{ comment.pseudo }}</span>
+                                <span>{{ comment.date_comment }}</span>
+                            </div>
+                            <div>
+                                <span class="my-auto">{{ comment.comment }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+            {% if session.flash.errors is defined %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for error in session.flash.errors %}
+                                <li class="text-center">{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% elseif session.flash.success is defined %}
+                    <div class="alert alert-success">
+                        <ul>
+                            {% for good in session.flash.success %}
+                                <li class="text-center">{{ good }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+            {% endif %}
+            <form action="" method="post">
+                <textarea class="col-12 mt-3 ml-3" name="commentaire" id="commentaires" cols="135" rows="8" placeholder="Votre commentaire..." required=""></textarea>
+                <div class="submit-button">
+                    <button class="button col-6 col-lg-2 mt-3" type="submit" name="submit">Envoyer</button>
+                </div>
+            </form>
+        </div>
+        {% else %}
+            <h1>Aucun acteur n'a été trouvé</h1>
+        {% endif %}
+    </div>
 {% endblock %}
+
