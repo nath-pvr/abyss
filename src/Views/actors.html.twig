@@ -1,31 +1,30 @@
 {% extends "template.html.twig" %}
 
-{% block navigation %}
-        <nav>
-            <ul>
-                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
-                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
-                <li>
-                    <input type="text" name="search" placeholder="Rechercher...">
-                </li>
-            </ul>
-        </nav>
+{% block css %}
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/thumbnails.css">
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
 {% endblock %}
 
 {% block body %}
-    {% if actors != false %}
-        {% for actor in actors %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ actor.firstname }} {{ actor.lastname}} </h5> <span>Date de naissance : {{ actor.birthday }}</span>
-                <p>Films : {{ actor.film }}</p>
-            </div>
-        </div>
-        {% endfor %}
-    {% else %}
-        <h1>Page non trouvé</h1>
-    {% endif %}
+	<section>
+		<div class="row">
+			<h3>Tous les acteurs</h3>
+			{% for actor in actors %}
+				<figure class="snip1104">
+					
+						<img src="{{baseUrl}}/assets/img/artists/{{actor.img}}"  alt="Photo de l'artiste: {{actor.lastname}} {{actor.firstname}}">
+					
+					<figcaption>
+						<h2>
+							<span>{{actor.lastname}}</span>
+							<span>{{actor.firstname}}</span>
+						</h2>
+					</figcaption>
+					<a href="{{baseUrl}}/acteur/{{actor.id}}"></a>
+				</figure>
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}
 
 

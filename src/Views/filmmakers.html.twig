@@ -1,26 +1,28 @@
 {% extends "template.html.twig" %}
-{# A refacto dans le template affiché sur toutes les pages #}
-{% block navigation %}
-        <nav>
-            <ul>
-                <li><a href="{{ baseUrl }}/inscription">Inscription</a></li>
-                <li><a href="{{ baseUrl }}/connexion">Se connecter</a></li>
-                <li>
-                    <input type="text" name="search" placeholder="Rechercher...">
-                </li>
-            </ul>
-        </nav>
+
+{% block css %}
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/thumbnails.css">
+	<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
 {% endblock %}
 
 {% block body %}
-    {% for filmmaker in filmmakers %}
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://www.pontivy-communaute.bzh/medias/2019/09/goutte-eau.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{ filmmaker.firstname }} </h5> 
-                <h5 class="card-title">{{ filmmaker.lastname }} </h5> 
-                <p class="card-text">{{ filmmaker.biography }}</p>
-            </div>
-        </div>
-    {% endfor %}
+	<section>
+		<div class="row">
+			<h3>Tous les réalisateurs</h3>
+			{% for filmmaker in filmmakers %}
+				<figure class="snip1104">
+					
+						<img src="{{baseUrl}}/assets/img/artists/{{filmmaker.img}}"  alt="Photo de l'artiste: {{filmmaker.lastname}} {{filmmaker.firstname}}">
+					
+					<figcaption>
+						<h2>
+							<span>{{filmmaker.lastname}}</span>
+							<span>{{filmmaker.firstname}}</span>
+						</h2>
+					</figcaption>
+					<a href="{{baseUrl}}/auteur/{{filmmaker.id}}"></a>
+				</figure>
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}

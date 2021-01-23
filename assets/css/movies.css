@@ -37,6 +37,10 @@ h3 {
   font-family: 'Roboto', sans-serif;
 }
 
+ul {
+  list-style: none;
+}
+
 .films {
   margin-top: 25%;
 }

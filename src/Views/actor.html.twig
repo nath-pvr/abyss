@@ -2,7 +2,7 @@
 
 
 {% block title %}
-        Acteur | {{ artist.firstname }}{{ artist.lastname }}
+        Acteur | {{ actor.firstname }}{{ actor.lastname }}
 {% endblock %}
 
 {% block css %}
@@ -11,27 +11,28 @@
 {% endblock %}
 
 {% block body %}
-	<img src="{{ baseUrl }}/assets/img/inscription.png" alt="img" class="abyss marge">
     <div class="row mt-5">
+        {% if actor != false %}
+
         <div class="col-8 offset-md-2">
-            <img src="{{ baseUrl }}/assets/img/artists/Depp_Johnny.jpg" alt="Affiche du film: ">
+            <img src="{{ baseUrl }}/assets/img/artists/{{actor.img}}" alt="Affiche du film: ">
         </div>
         {# <div class="content-div-title">
 
         </div> #}
         <div class="content-bg col-8 offset-md-2 px-4 mb-5">
             <div class="content-div col-12">
-                <h1 class="titles text-center text-nowrap">{{ artist.firstname }}{{ artist.lastname }}</h1>
+                <h1 class="titles text-center text-nowrap">{{ actor.firstname }}{{ actor.lastname }}</h1>
                 <h5 class="titles text-center text-nowrap">Film(s) :</h5>
                 {# TODO Boucle for pour rechercher le réalisateur du film #}
                 <h5 class="titles2 text-center text-nowrap">Date de naissance :</h5>
-                {% for artist in artists %}
-                    <p class="text-center">{{ artist.birthday }}</p>
-                {% endfor %}
+                
+                    <p class="text-center">{{ actor.birthday }}</p>
+                
             </div>
             <div class="content-div col-12">
                 <h5 class="titles2 text-center text-lg-start">Biographie :</h5>
-                <p class="col-12">{{ artist.biography }}</p>
+                <p class="col-12">{{ actor.biography }}</p>
             </div>
             <div class="content-div mt-5 col-12">
                 <h5 class="titles2 text-center text-lg-start text-nowrap">Commentaires :</h5>
@@ -73,6 +74,9 @@
                 </div>
             </form>
         </div>
+        {% else %}
+            <h1>Aucun acteur n'a été trouvé</h1>
+        {% endif %}
     </div>
 {% endblock %}
 

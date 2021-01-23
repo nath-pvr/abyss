@@ -48,8 +48,7 @@
 							</div>
 							{% for i in 0..4 %}
 								<div class="carousel-item">
-									<div
-										class="row">
+									<div class="row">
 										{% set iterate = i * 4 %}
 										{% for movie in movies |slice(iterate, 4) %}
 
@@ -75,13 +74,32 @@
 						</div>
 					</a>
 				</div>
-				<li>
-					<h3>
-						<a href="{{ baseUrl }}/thumbnails">
-							<button class="btn btn-danger" type="submit">Tous les films</button>
-						</a>
-					</h3>
-				</li>
+				{# <ul class="col-12 d-flex align-items-center justify-content-center"> #}
+				{# TODO ajouter un col-3 au li ci dessous #}
+					<li> 
+						<h3>
+							<a href="{{ baseUrl }}/thumbnails">
+								<button class="btn btn-danger" type="submit">Tous les films</button>
+							</a>
+						</h3>
+					</li>
+
+					{# <li class="col-3">
+						<h3>
+							<a href="{{ baseUrl }}/acteurs">
+								<button class="btn btn-danger" type="submit">Tous les acteurs</button>
+							</a>
+						</h3>
+					</li>
+					<li class="col-3">
+						<h3>
+							<a href="{{ baseUrl }}/auteurs">
+								<button class="btn btn-danger" type="submit">Tous les réalisateurs</button>
+							</a>
+						</h3>
+					</li>
+				</ul> #}
+
 			</div>
 		</div>
 	</section>
@@ -89,4 +107,4 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-	{% endblock %}
+{% endblock %}
