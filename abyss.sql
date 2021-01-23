@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 22 jan. 2021 à 16:04
+-- Généré le : sam. 23 jan. 2021 à 21:47
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `actor_film` (
   `id_film` int(11) NOT NULL,
   `id_artist` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `actor_film`
@@ -258,6 +258,50 @@ CREATE TABLE IF NOT EXISTS `comment` (
 INSERT INTO `comment` (`id`, `id_user`, `id_movie`, `comment`, `date_comment`) VALUES
 (1, 1, 4, 'Bonjour', '2021-01-22'),
 (2, 1, 4, 'Comment allez-vous ?', '2021-01-22');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `film_role`
+--
+
+DROP TABLE IF EXISTS `film_role`;
+CREATE TABLE IF NOT EXISTS `film_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_film` int(11) NOT NULL,
+  `id_role` int(11) NOT NULL,
+  `id_artist` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `film_role`
+--
+
+INSERT INTO `film_role` (`id`, `id_film`, `id_role`, `id_artist`) VALUES
+(1, 1, 1, 8),
+(2, 2, 1, 7),
+(3, 3, 1, 9),
+(4, 4, 1, 13),
+(5, 5, 1, 18),
+(6, 6, 1, 22),
+(7, 7, 1, 26),
+(8, 8, 1, 30),
+(9, 9, 1, 34),
+(10, 10, 1, 38),
+(11, 11, 1, 42),
+(12, 12, 1, 44),
+(13, 13, 1, 50),
+(14, 14, 1, 51),
+(15, 15, 1, 55),
+(16, 16, 1, 56),
+(17, 17, 1, 9),
+(18, 18, 1, 63),
+(19, 19, 1, 67),
+(20, 20, 1, 71),
+(22, 9, 1, 67),
+(23, 19, 1, 34),
+(24, 11, 1, 43);
 
 -- --------------------------------------------------------
 
