@@ -31,6 +31,12 @@ class MovieController extends GeneralController
         // Utilise la fonction getOneMovie() de la class MovieModel
         $movie = $movieModel->getOneMovie($id);
 
+        // afficher le/les réalisateurs
+        $rea = $movieModel->getFilmakerByMovie($id);
+
+        // afficher la distribution
+        $distribution = $movieModel->getDistributionByMovie($id);
+
         $commentModel = new CommentsModel();
         $comments = $commentModel->getAllComments($id);
 
@@ -38,6 +44,8 @@ class MovieController extends GeneralController
         $template = $this->twig->load('film.html.twig');
         echo $template->render([
             "movie" => $movie,
+            "rea"=> $rea,
+            "distribution"=>$distribution,
             "comments" => $comments,
             "errors" => $this->errors,
             "success" => $this->success,

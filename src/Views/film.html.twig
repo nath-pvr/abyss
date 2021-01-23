@@ -21,10 +21,12 @@
             <div class="content-div col-12">
                 <h1 class="titles t text-center">{{ movie.title }}</h1>
                 <h5 class="titles text-center text-nowrap">Réalisateur(s) :</h5>
-                {# TODO Boucle for pour rechercher le réalisateur du film #}
+                {% for rea in rea %}
+                    <p class="col-12 text-center f-text"><a href="{{baseUrl}}/auteur/{{rea.id}}">{{ rea.firstname }} {{ rea.lastname }}</a></p>
+                {% endfor %}
                 <h5 class="titles2 text-center text-nowrap">Distribution :</h5>
-                {% for artist in artists %}
-                    <p class="text-center">{{ artist.firstname }} {{ artist.lastname }}</p>
+                {% for distribution in distribution %}
+                    <p class="col-12 text-center f-text"><a href="{{baseUrl}}/acteur/{{distribion.id}}">{{ distribution.firstname }} {{ distribution.lastname }}</a></p>
                 {% endfor %}
                 <h5 class="titles2 text-center text-nowrap">Genre :</h5>
                 <p class="col-12 text-center f-text">{{ movie.gender }}</p>
