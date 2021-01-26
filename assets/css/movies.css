@@ -9,9 +9,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 /* horizontal menu */
 
-img {
-  max-width: 100%;
-}
 
 /*-- end reset --*/
 
@@ -89,8 +86,20 @@ nav ul li a {
 }
 
 .abyss {
-  height: 50%;
-  width:50%;
+  height:100%;
+  width: 100%;
+}
+
+.abyss404{
+  height:50%;
+  width: 50%;
+  margin-left: 30%;
+}
+
+.abyss404form{
+  margin-right: 10%;
+
+
 }
 
 .mef {

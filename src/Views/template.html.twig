@@ -19,36 +19,42 @@
 		{% endblock %}
 	</head>
 	<body>
-		<div class="container" >
-			
-				{% block navigation %}
-					<nav class="navbar navbar-expand-lg py-3">
-						<div class="container-fluid">
-							<a href="{{ baseUrl }}" class="navbar-brand"><img src="{{ baseUrl }}/assets/img/inscription.png" alt="abyss2" class="abyss" style="margin-left: 10%;"></a>
-							<form action="{{baseUrl}}/search" method="POST" class="d-flex" style="margin-right: 10%;">
-								<ul class="text-nowrap">
-									{% if session.auth is defined and session.auth.confirmation_token is same as(null) %}
-										<li>
-											<a href="{{ baseUrl }}/logout">Se déconnecter</a>
-										</li>
-									{% else %}
-										<li>
-											<a href="{{ baseUrl }}/inscription">Inscription</a>
-										</li>
-										<li>
-											<a href="{{ baseUrl }}/connexion">Se connecter</a>
-										</li>
-									{% endif %}
-								</ul>
-								<input class="mef me-2 outline-danger" type="search" id="search" name="search" placeholder="Recherche" aria-label="Search">
-								<button class="btn btn-danger" type="submit">Recherche</button>
-							</form>
-						</div>
-					</nav>
+		<div class="container">
 
-				{% endblock %}
-			{% block body %}
+			{% block navigation %}
+				<nav class="navbar navbar-expand-lg py-3">
+					<div class="container-fluid">
+						<a href="{{ baseUrl }}" class="navbar-brand"><img src="{{ baseUrl }}/assets/img/inscription.png" alt="abyss2" class="abyss"></a>
+						<form action="{{baseUrl}}/search" method="POST" class="d-flex" >
+							<ul class="text-nowrap">
+								<li>
+									<a href="{{ baseUrl }}/acteurs">Tous les acteurs
+									</a>
+								</li>
+								<li>
+									<a href="{{ baseUrl }}/auteurs">Tous les réalisateurs</a>
+								</li>
+								{% if session.auth is defined and session.auth.confirmation_token is same as(null) %}
+									<li>
+										<a href="{{ baseUrl }}/logout">Se déconnecter</a>
+									</li>
+								{% else %}
+									<li>
+										<a href="{{ baseUrl }}/inscription">Inscription</a>
+									</li>
+									<li>
+										<a href="{{ baseUrl }}/connexion">Se connecter</a>
+									</li>
+								{% endif %}
+							</ul>
+							<input class="mef me-2 outline-danger" type="search" id="search" name="search" placeholder="Recherche" aria-label="Search">
+							<button class="btn btn-danger" type="submit">Recherche</button>
+						</form>
+					</div>
+				</nav>
+
 			{% endblock %}
+			{% block body %}{% endblock %}
 		</div>
 		<div class="bulles">
 			<img src="{{ baseUrl }}/assets/img/bubble.png">

@@ -36,7 +36,12 @@
 							<span>{{searchArtist.firstname}}</span>
 						</h2>
 					</figcaption>
+					{% if searchArtist.id_role == 1 %}
 					<a href="{{baseUrl}}/auteur/{{searchArtist.id}}"></a>
+					
+					{% else %}
+					<a href="{{baseUrl}}/acteur/{{searchArtist.id}}"></a>
+					{% endif %}	
 				</figure>
 			{% endfor %}
 
