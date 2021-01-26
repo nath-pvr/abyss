@@ -21,7 +21,7 @@ class SearchModel extends GeneralModel{
     public function searchArtist($search){
         // recherche des artists
         $search ="%".$search."%";
-        $sql = 'SELECT * FROM artists WHERE firstname LIKE :search OR lastname LIKE :search'; 
+        $sql = 'SELECT * FROM artists WHERE (firstname LIKE :search OR lastname LIKE :search) OR (CONCAT(firstname, " ",lastname)LIKE :search) OR (CONCAT(lastname, " ",firstname) LIKE :search)'; 
         $req = $this->pdo->prepare($sql);
         $req->execute([":search"=>$search]);
         return $req->fetchAll(); 
