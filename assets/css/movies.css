@@ -90,6 +90,18 @@ nav ul li a {
   width: 100%;
 }
 
+.abyss404{
+  height:50%;
+  width: 50%;
+  margin-left: 30%;
+}
+
+.abyss404form{
+  margin-right: 10%;
+
+
+}
+
 .mef {
   display: block;
   padding: .375rem .80rem;
