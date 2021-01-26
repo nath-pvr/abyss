@@ -22,7 +22,7 @@
                 <h1 class="titles text-center text-nowrap">{{ actor.firstname }} {{ actor.lastname }}</h1>
                 <h5 class="titles text-center text-nowrap mt-4">Film(s) :</h5>
                 {% for film in films  %}
-                    <p class="text-center mt-3">{{ film.title }}</p>
+                    <p class="text-center mt-3 f-text"><a href="{{ baseUrl }}/film/{{ film.id }}">{{ film.title }}</a></p>
                 {% endfor %}
                 <h5 class="titles2 text-center text-nowrap mt-5">Date de naissance :</h5>
                 
