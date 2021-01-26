@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ActorModel;
 use App\Models\ActorsModel;
+use App\Models\ArtistsModel;
 use App\Models\MovieModel;
 use App\Models\MoviesModel;
 use App\Models\FilmmakerModel;
@@ -34,44 +35,6 @@ class PageController extends GeneralController
         $movie = $movieModel->getOneMovie($id);
         $template = $this->twig->load('film.html.twig');
         echo $template->render(["movie" => $movie]);
-    }
-
-    public function filmmakers(): void
-    {
-        $filmmakersModel = new FilmmakersModel(); // Instanciation de la class FilmakersModel
-        $filmmakers = $filmmakersModel->getAllFilmmakers(); // Utilise la fonction getAllFilmmakers() de la classe FilmmakersModel
-        $template = $this->twig->load('filmmakers.html.twig');
-        echo $template->render(["filmmakers" => $filmmakers]);
-    }
-
-    public function filmmaker($id): void
-    {
-        // Instanciation d'un nouvel objet Filmmaker
-        $filmmakerModel = new FilmmakerModel();
-        // Utilise la fonction getOneFilmmaker() de la class MovieModel 
-        $filmmaker = $filmmakerModel->getOneFilmmaker($id);
-        $template = $this->twig->load('filmmaker.html.twig');
-        echo $template->render(["filmmaker" => $filmmaker]);
-    }
-
-    public function actors(): void
-    {
-        $actorsModel = new ActorsModel();
-
-        $actors = $actorsModel->getAllActors();
-
-        $template = $this->twig->load('actors.html.twig');
-        echo $template->render(["actors" => $actors]);
-    }
-
-    public function actor($id): void
-    {
-        // Instanciation d'un nouvel objet ActorModel
-        $actorModel = new ActorModel();
-        // Utilise la fonction getOneActor() de la class ActorModel 
-        $actor = $actorModel->getOneActor($id);
-        $template = $this->twig->load('actor.html.twig');
-        echo $template->render(["actor" => $actor]);
     }
 
     // fonction error404 avec la vue error404.html.twig

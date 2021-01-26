@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Controllers\ArtistsController;
 use App\Controllers\UserForgotPassController;
 use Config\Config;
 /* liste des Controllers exemple que l'on utilise */
@@ -82,22 +83,22 @@ $router->map('POST', '/film/[i:id]', function ($id) {
 });
 
 $router->map('GET', '/auteurs', function () {
-    $controller = new PageController();
-    $controller->filmmakers();
+    $controller = new ArtistsController();
+    $controller->authors();
 });
 
 $router->map('GET', '/auteur/[i:id]', function ($id) {
-    $controller = new PageController();
-    $controller->filmmaker($id);
+    $controller = new ArtistsController();
+    $controller->author($id);
 });
 
 $router->map('GET', '/acteurs', function () {
-    $controller = new PageController();
+    $controller = new ArtistsController();
     $controller->actors();
 });
 
 $router->map('GET', '/acteur/[i:id]', function ($id) {
-    $controller = new PageController();
+    $controller = new ArtistsController();
     $controller->actor($id);
 });
 

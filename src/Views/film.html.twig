@@ -10,24 +10,22 @@
 
 {% block body %}
     <div class="row mt-5">
-        {{ dump(session) }}
         {% if movie != false %}
         <div class="col-8 offset-md-2">
             <img src="{{ baseUrl }}/assets/img/films/{{ movie.img }}" alt="Affiche du film: {{ movie.title }}">
         </div>
-        {# <div class="content-div-title">
-            <h1 class="titles text-center text-nowrap">{{ movie.title }}</h1>
-        </div> #}
         <div class="content-bg col-8 offset-md-2 px-4 mb-5">
             <div class="content-div col-12">
                 <h1 class="titles t text-center">{{ movie.title }}</h1>
                 <h5 class="titles text-center text-nowrap">Réalisateur(s) :</h5>
                 {% for rea in rea %}
-                    <p class="col-12 text-center f-text"><a href="{{baseUrl}}/auteur/{{rea.id}}">{{ rea.firstname }} {{ rea.lastname }}</a></p>
+                    <p class="col-12 text-center f-text"><a href="{{baseUrl}}/auteur/{{rea.id}}">{{ rea.lastname }} {{ rea.firstname }} </a></p>
                 {% endfor %}
                 <h5 class="titles2 text-center text-nowrap">Distribution :</h5>
                 {% for distribution in distribution %}
-                    <p class="col-12 text-center f-text"><a href="{{baseUrl}}/acteur/{{distribution.id}}">{{ distribution.firstname }} {{ distribution.lastname }}</a></p>
+                    <p class="col-12 text-center f-text">
+                        <a href="{{baseUrl}}/acteur/{{distribution.id}}">{{ distribution.lastname }} {{ distribution.firstname }}</a>
+                    </p>
                 {% endfor %}
                 <h5 class="titles2 text-center text-nowrap">Genre :</h5>
                 <p class="col-12 text-center f-text">{{ movie.gender }}</p>
