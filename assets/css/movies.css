@@ -119,6 +119,10 @@ nav ul li a {
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+.success {
+  margin-top: -19%;
+  margin-bottom: 30px;
+}
 
 /*-- responsive --*/
 
