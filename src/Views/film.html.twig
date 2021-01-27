@@ -40,34 +40,34 @@
                 <h5 class="titles2 text-center text-lg-start text-nowrap">Commentaires :</h5>
             </div>
             <div class="col-12 mt-3 mb-5">
-                    {% for comment in comments %}
-                        <div class="grey-bg d-flex justify-content-between">
-                            <div class="d-flex flex-column">
-                                <span>{{ comment.pseudo }}</span>
-                                <span>{{ comment.date_comment }}</span>
-                            </div>
-                            <div>
-                                <span class="my-auto">{{ comment.comment }}</span>
-                            </div>
+                {% for comment in comments %}
+                    <div class="grey-bg d-flex flex-column flex-md-row justify-content-between">
+                        <div class="p-2">
+                            <p class="mb-0">{{ comment.pseudo }}</p>
+                            <p class="mb-1 dateComment">{{ comment.date_comment }} :</p>
                         </div>
-                    {% endfor %}
+                        <div class="p-2">
+                            <p class="my-auto text-break">{{ comment.comment }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
             {% if session.flash.errors is defined %}
-                    <div class="alert alert-danger">
-                        <ul>
-                            {% for error in session.flash.errors %}
-                                <li class="text-center">{{ error }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for error in session.flash.errors %}
+                            <li class="text-center">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% elseif session.flash.success is defined %}
-                    <div class="alert alert-success">
-                        <ul>
-                            {% for good in session.flash.success %}
-                                <li class="text-center">{{ good }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                <div class="alert alert-success">
+                    <ul>
+                        {% for good in session.flash.success %}
+                            <li class="text-center">{{ good }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endif %}
             <form action="" method="post">
                 <textarea class="col-12 mt-3 ml-3" name="commentaire" id="commentaires" cols="135" rows="8" placeholder="Votre commentaire..."></textarea>
