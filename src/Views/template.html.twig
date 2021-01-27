@@ -16,7 +16,6 @@
 
 		{% block css %}
 			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/style.css">
-			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/movies.css">
 			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/bulles.css">
 			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/thumbnails.css">
 			<link rel="stylesheet" href="{{ baseUrl }}/assets/css/template.css">
@@ -30,32 +29,32 @@
 					<div class="menu-icon">
 						<i class="fa fa-bars fa-2x"></i>
 					</div>
-					<form action="{{baseUrl}}/search" method="POST" class="d-flex" class="menu">
-						<ul>
-							<li>
-								<a href="{{ baseUrl }}/acteurs">Tous les acteurs
-								</a>
-							</li>
-							<li>
-								<a href="{{ baseUrl }}/auteurs">Tous les réalisateurs</a>
-							</li>
-							{% if session.auth is defined and session.auth.confirmation_token is same as(null) %}
-								<li>
-									<a href="{{ baseUrl }}/logout">Se déconnecter</a>
-								</li>
-							{% else %}
-								<li>
-									<a href="{{ baseUrl }}/inscription">Inscription</a>
-								</li>
-								<li>
-									<a href="{{ baseUrl }}/connexion">Se connecter</a>
-								</li>
-							{% endif %}
-						</ul>
-					</form>
 
-					<input class="mef" type="search" placeholder="Search" id="search" aria-label="Search" name="search" placeholder="Recherche">
-					<button class="btn btn btn-danger" type="submit">Recherche</button>
+					<ul>
+						<li>
+							<a href="{{ baseUrl }}/acteurs">Tous les acteurs
+							</a>
+						</li>
+						<li>
+							<a href="{{ baseUrl }}/auteurs">Tous les réalisateurs</a>
+						</li>
+						{% if session.auth is defined and session.auth.confirmation_token is same as(null) %}
+							<li>
+								<a href="{{ baseUrl }}/logout">Se déconnecter</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="{{ baseUrl }}/inscription">Inscription</a>
+							</li>
+							<li>
+								<a href="{{ baseUrl }}/connexion">Se connecter</a>
+							</li>
+						{% endif %}
+					</ul>
+					<form action="{{baseUrl}}/search" method="POST" class="d-flex" class="menu">
+						<input class="mef" type="search" placeholder="Search" id="search" aria-label="Search" name="search" placeholder="Recherche">
+						<button class="btn btn btn-danger" type="submit">Recherche</button>
+					</form>
 				</div>
 			</nav>
 		{% endblock %}
