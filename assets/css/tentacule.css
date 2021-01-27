@@ -95,18 +95,6 @@ a {
     vertical-align: top;
 }
 
-/* vertical align top */
-
-nav.vertical ul li {
-    display: block;
-}
-
-/* vertical menu */
-
-nav.horizontal ul li {
-    display: inline-block;
-}
-
 .abyss {
     width: 28%;
     margin-left: 35%;
@@ -168,7 +156,6 @@ footer {
         transform: translateX(400px);
     }
 }
-
 
 #petitpoisson {
     animation: petitpoisson 1s cubic-bezier(0.55, 0.01, 0.60, 0.99) infinite alternate;

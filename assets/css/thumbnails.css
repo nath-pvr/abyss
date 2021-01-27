@@ -1,154 +1,121 @@
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  
-  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-  
-  ol, ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-  }
-  
-  blockquote, q {
-    quotes: none;
-  }
-  
-  blockquote:before, blockquote:after, q:before, q:after {
-    content: '';
-    content: none;
-  }
-  
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  
-  /*-- start editing from here --*/
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .txt-rt {
-    text-align: right;
-  }
-  
-  /* text align right */
-  
-  .txt-lt {
-    text-align: left;
-  }
-  
-  /* text align left */
-  
-  .txt-center {
-    text-align: center;
-  }
-  
-  /* text align center */
-  
-  .float-rt {
-    float: right;
-  }
-  
-  /* float right */
-  
-  .float-lt {
-    float: left;
-  }
-  
-  /* float left */
-  
-  .clear {
-    clear: both;
-  }
-  
-  /* clear float */
-  
-  .pos-relative {
-    position: relative;
-  }
-  
-  /* Position Relative */
-  
-  .pos-absolute {
-    position: absolute;
-  }
-  
-  /* Position Absolute */
-  
-  .vertical-base {
-    vertical-align: baseline;
-  }
-  
-  /* vertical align baseline */
-  
-  .vertical-top {
-    vertical-align: top;
-  }
-  
-  /* vertical align top */
-  
-  nav.vertical ul li {
-    display: block;
-  }
-  
-  /* vertical menu */
-  
-  nav.horizontal ul li {
-    display: inline-block;
-  }
-  
-  /* horizontal menu */
-  
-  /*-- end reset --*/
-  
-  body {
-    background: #160161;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #000000, #181B48, #72B8C7);
-    background: -moz-linear-gradient(to top, #000000, #181B48, #72B8C7);
-    background: -o-linear-gradient(to top, #000000, #181B48, #72B8C7);
-    background: linear-gradient(to top, #000000, #181B48, #72B8C7);
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Roboto', sans-serif;
-  }
-  
-  .abyss {
-    width: 28%;
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-top: -5%;
-  }
-  
-  h3 {
-    font-size: 1.5em;
-    text-align: center;
-    color: #fff;
-    font-weight: 100;
-    text-transform: capitalize;
-    letter-spacing: 4px;
-    font-family: 'Roboto', sans-serif;
-  }
-
-.abyss-thum{
-    margin-top: 5%;
-  }
-
-.position{
-    margin-left: 10%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*-- start editing from here --*/
+
+a {
+  text-decoration: none;
+}
+
+.txt-rt {
+  text-align: right;
+}
+
+/* text align right */
+
+.txt-lt {
+  text-align: left;
+}
+
+/* text align left */
+
+.txt-center {
+  text-align: center;
+}
+
+/* text align center */
+
+.float-rt {
+  float: right;
+}
+
+/* float right */
+
+.float-lt {
+  float: left;
+}
+
+/* float left */
+
+.clear {
+  clear: both;
+}
+
+/* clear float */
+
+.pos-relative {
+  position: relative;
+}
+
+/* Position Relative */
+
+.pos-absolute {
+  position: absolute;
+}
+
+/* Position Absolute */
+
+.vertical-base {
+  vertical-align: baseline;
+}
+
+/* vertical align baseline */
+
+.vertical-top {
+  vertical-align: top;
+}
+
+/* vertical align top */
+
+nav.vertical ul li {
+  display: block;
+}
+
+/* vertical menu */
+
+nav.horizontal ul li {
+  display: inline-block;
+}
+
+/* horizontal menu */
+
+.abyss-thum {
+  margin-top: 5%;
+}
+
+.position {
+  margin-left: 10%;
+}
 
 /*thumbnails*/
 
@@ -231,87 +198,19 @@ figure.snip1104 a {
   z-index: 1;
 }
 
-figure.snip1104:hover img,
-figure.snip1104.hover img {
+figure.snip1104:hover img, figure.snip1104.hover img {
   opacity: 1;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-figure.snip1104:hover h2,
-figure.snip1104.hover h2 {
+figure.snip1104:hover h2, figure.snip1104.hover h2 {
   -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
   transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
 }
 
-figure.snip1104:hover:before,
-figure.snip1104.hover:before {
+figure.snip1104:hover:before, figure.snip1104.hover:before {
   -webkit-transform: rotate(110deg) translateY(-150%);
   transform: rotate(110deg) translateY(-150%);
 }
-
-/*--NavBar--*/
-
-header {
-  height: 5vh;
-  background-size: cover;
-}
-
-nav {
-  height: 25vh;
-  background-size: cover;
-  position: fixed;
-  line-height: 60px;
-  z-index: 0;
-}
-
-nav ul {
-  line-height: 20px;
-  list-style: none;
-  background: rgba(0, 0, 0, 0);
-  overflow: hidden;
-  color: #fff;
-  padding: 0;
-  text-align: right;
-  margin: 0;
-  transition: 1s;
-  text-shadow: 0.1em 0.1em 0.2em black;
-}
-
-nav.black ul {
-  background: #2B292A;
-}
-
-nav ul li {
-  display: inline-block;
-  padding: 10px 30px;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-}
-
-.abyss {
-  height: 50%;
-  width: 50%;
-}
-
-.mef {
-  display: block;
-  padding: .375rem .80rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #9e1212;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: .25rem;
-  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
+/* 
